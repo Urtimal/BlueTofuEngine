@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlueTofuEngine.Core\BlueTofuEngine.Core.csproj" />
+    <ProjectReference Include="..\BlueTofuEngine.World\BlueTofuEngine.World.csproj" />
+    <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Stats.Core\BlueTofuEngine.Module.Stats.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="World\Components\" />
+  </ItemGroup>
+
+</Project>

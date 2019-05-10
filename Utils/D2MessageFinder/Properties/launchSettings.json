@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "D2MessageFinder": {
+      "commandName": "Project",
+      "commandLineArgs": "\"E:\\Dofus Server\\Dofus 2\\src\\2.51.3_release\\scripts\\com\\ankamagames\\dofus\\network\\messages\""
+    }
+  }
+}

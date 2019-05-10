@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BlueTofuEngine.Core\BlueTofuEngine.Core.csproj" />
+    <ProjectReference Include="..\..\BlueTofuEngine.GameServer.Core\BlueTofuEngine.GameServer.Core.csproj" />
+    <ProjectReference Include="..\..\BlueTofuEngine.World\BlueTofuEngine.World.csproj" />
+    <ProjectReference Include="..\BlueTofuEngine.Module.Chat.Core\BlueTofuEngine.Module.Chat.Core.csproj" />
+  </ItemGroup>
+
+</Project>

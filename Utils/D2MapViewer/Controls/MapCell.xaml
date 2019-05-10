@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="D2MapViewer.Controls.MapCell"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:D2MapViewer.Controls"
+             xmlns:conv="clr-namespace:D2MapViewer.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="43" d:DesignWidth="86">
+    <UserControl.Resources>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisiblity"/>
+    </UserControl.Resources>
+    <Grid x:Name="grid">
+        <Polygon x:Name="gridStroke" Points="43,0 86,21.5 43,43, 0,21.5" Stroke="Gray" StrokeThickness="1" Visibility="{Binding DisplayGrid, Converter={StaticResource BoolToVisiblity}}" Fill="#01000000"/>
+        <TextBlock x:Name="txtGridId" Text="{Binding Id, FallbackValue=XXX}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Gray" Visibility="{Binding DisplayNumber, Converter={StaticResource BoolToVisiblity}}"/>
+    </Grid>
+</UserControl>

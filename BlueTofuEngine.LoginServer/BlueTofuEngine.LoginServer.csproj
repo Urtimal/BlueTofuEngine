@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlueTofuEngine.Core\BlueTofuEngine.Core.csproj" />
+    <ProjectReference Include="..\BlueTofuEngine.World\BlueTofuEngine.World.csproj" />
+    <ProjectReference Include="..\Modules\BlueTofuEngine.BypassLogin\BlueTofuEngine.BypassLogin.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="World\Events\" />
+    <Folder Include="World\Systems\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "D2TextInformationSeparator": {
+      "commandName": "Project",
+      "commandLineArgs": "\"E:\\Dofus Server\\Dofus 2\\exported_data\\output\\data\\InfoMessages\""
+    }
+  }
+}
