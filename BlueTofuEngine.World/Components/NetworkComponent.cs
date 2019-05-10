@@ -12,12 +12,4 @@ namespace BlueTofuEngine.World.Components
         public string Name => "network";
         public INetworkClient Client { get; set; }
     }
-
-    public static class NetworkComponentExtensions
-    {
-        public static NetworkComponent Network(this IEntity entity)
-        {
-            return entity.GetComponent<NetworkComponent>();
-        }
-    }
 }

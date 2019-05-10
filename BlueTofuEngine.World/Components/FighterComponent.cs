@@ -11,12 +11,4 @@ namespace BlueTofuEngine.World.Components
 
         public int Level { get; set; }
     }
-
-    public static class FighterComponentExtensions
-    {
-        public static FighterComponent Fighter(this IEntity entity)
-        {
-            return entity.GetComponent<FighterComponent>();
-        }
-    }
 }

@@ -16,16 +16,7 @@ namespace BlueTofuEngine.Module.Chat
         [NetworkMessageHandler(ChatClientMultiMessage.Id)]
         public static void OnClientMultiMessage(INetworkClient client, ChatClientMultiMessage message)
         {
-            var sMessage = new ChatServerMessage
-            {
-                Channel = message.Channel,
-                Content = message.Content,
-                SenderId = client.GetEntity().Id,
-                FingerPrint = message.Content,
-                SenderAccountId = (int)client.GetEntity().Account().AccountId,
-                SenderName = client.GetEntity().Look().EntityName
-            };
-            client.Send(sMessage);
+            client.GetEntity().Notify(new ClientChatMessageEventArgs((ChatChannelType)message.Channel, message.Content));
         }
     }
 }

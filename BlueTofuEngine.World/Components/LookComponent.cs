@@ -13,12 +13,4 @@ namespace BlueTofuEngine.World.Components
         public string EntityName { get; set; }
         public EntityLook Look { get; set; }
     }
-
-    public static class LookComponentExtensions
-    {
-        public static LookComponent Look(this IEntity entity)
-        {
-            return entity.GetComponent<LookComponent>();
-        }
-    }
 }

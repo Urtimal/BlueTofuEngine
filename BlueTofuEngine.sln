@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Core", "BlueTofuEngine.Core\BlueTofuEngine.Core.csproj", "{2054F52F-286C-4F8D-B9C2-E92B292F0642}"
 EndProject
@@ -63,7 +63,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{968EAF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{CEC31027-53D0-4AD5-81ED-59DAF2044989}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueTofuEngine.Modules.CommonBasic", "Modules\BlueTofuEngine.Modules.CommonBasic\BlueTofuEngine.Modules.CommonBasic.csproj", "{5A689182-CC93-4B37-A5F2-E4B9D3F74AED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Modules.CommonBasic", "Modules\BlueTofuEngine.Modules.CommonBasic\BlueTofuEngine.Modules.CommonBasic.csproj", "{5A689182-CC93-4B37-A5F2-E4B9D3F74AED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Account", "Account", "{4CC8BFFA-E6C8-4DC0-BE29-F22E611394B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueTofuEngine.Module.Account.Core", "Modules\BlueTofuEngine.Module.Account.Core\BlueTofuEngine.Module.Account.Core.csproj", "{646DE563-278F-40DF-8696-6B9C25F98C9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -155,6 +159,10 @@ Global
 		{5A689182-CC93-4B37-A5F2-E4B9D3F74AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A689182-CC93-4B37-A5F2-E4B9D3F74AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A689182-CC93-4B37-A5F2-E4B9D3F74AED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{646DE563-278F-40DF-8696-6B9C25F98C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{646DE563-278F-40DF-8696-6B9C25F98C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{646DE563-278F-40DF-8696-6B9C25F98C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{646DE563-278F-40DF-8696-6B9C25F98C9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -183,6 +191,8 @@ Global
 		{968EAF77-B2E5-41B2-84BC-4607BDCC4F9E} = {9D052CEC-54E6-4D55-A766-A32402EF0636}
 		{CEC31027-53D0-4AD5-81ED-59DAF2044989} = {968EAF77-B2E5-41B2-84BC-4607BDCC4F9E}
 		{5A689182-CC93-4B37-A5F2-E4B9D3F74AED} = {CEC31027-53D0-4AD5-81ED-59DAF2044989}
+		{4CC8BFFA-E6C8-4DC0-BE29-F22E611394B8} = {968EAF77-B2E5-41B2-84BC-4607BDCC4F9E}
+		{646DE563-278F-40DF-8696-6B9C25F98C9D} = {4CC8BFFA-E6C8-4DC0-BE29-F22E611394B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {497D3D38-783A-4CCB-AE76-D1C5CC0A6160}

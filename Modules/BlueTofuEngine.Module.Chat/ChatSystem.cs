@@ -27,14 +27,33 @@ namespace BlueTofuEngine.Module.Chat
                     entity.Send(tim);
                     break;
 
+                case ClientChatMessageEventArgs ccmea:
+                    OnClientChat(entity, ccmea);
+                    break;
+
                 case ClientEnteringGameEventArgs cegea:
-                    entity.Notify(new SendInfoMessageEventArgs(10089));
+                    entity.Notify(new SendInfoMessageEventArgs(InfoMessages.WelcomeMessage));
                     break;
             }
         }
 
         public void OnTick(float deltaTime)
         {
+        }
+
+        private void OnClientChat(IEntity entity, ClientChatMessageEventArgs ccmea)
+        {
+            var message = new ChatServerMessage
+            {
+                SenderId = entity.Id,
+                SenderName = entity.Look().EntityName,
+                SenderAccountId = (int)entity.Account().AccountId,
+                Channel = (int)ccmea.Channel,
+                Content = ccmea.Content,
+                FingerPrint = ccmea.Content,
+                Prefix = string.Empty
+            };
+            entity.Context()?.Context?.Send(message);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace BlueTofuEngine.Module.Chat.Messages
 
         public override string GetSummary()
         {
-            return "[" + Channel + "] " + base.GetSummary();
+            return "[" + (ChatChannelType)Channel + "] " + base.GetSummary();
         }
     }
 }

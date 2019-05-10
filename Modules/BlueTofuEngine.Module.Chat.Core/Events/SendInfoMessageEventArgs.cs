@@ -31,6 +31,18 @@ namespace BlueTofuEngine.Module.Chat
             }
         }
 
+        public SendInfoMessageEventArgs(InfoMessages message)
+        {
+            Args = new List<string>();
+
+            var infoMessage = GameDataManager<InfoMessage>.Instance.Get((int)message);
+            if (infoMessage != null)
+            {
+                Type = (InfoMessageType)infoMessage.Type;
+                MessageId = (short)infoMessage.Id;
+            }
+        }
+
         public override bool CheckIsValid()
         {
             return MessageId > 0 && Args != null;

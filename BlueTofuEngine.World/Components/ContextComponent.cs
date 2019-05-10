@@ -7,19 +7,11 @@ using System.Text;
 
 namespace BlueTofuEngine.World.Components
 {
-    public class GameContextComponent : IComponent
+    public class ContextComponent : IComponent
     {
-        public string Name => "gamecontext";
+        public string Name => "context";
 
         public GameContextType Type { get; set; }
         public IContext Context { get; set; }
-    }
-
-    public static class GameContextComponentExtension
-    {
-        public static GameContextComponent Context(this IEntity entity)
-        {
-            return entity.GetComponent<GameContextComponent>();
-        }
     }
 }

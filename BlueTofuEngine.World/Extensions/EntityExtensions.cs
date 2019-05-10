@@ -13,5 +13,29 @@ namespace BlueTofuEngine.World.Extensions
         {
             entity.Network()?.Client.Send(message);
         }
+
+        #region Basic components
+
+        public static ContextComponent Context(this IEntity entity)
+        {
+            return entity.GetComponent<ContextComponent>();
+        }
+
+        public static FighterComponent Fighter(this IEntity entity)
+        {
+            return entity.GetComponent<FighterComponent>();
+        }
+
+        public static LookComponent Look(this IEntity entity)
+        {
+            return entity.GetComponent<LookComponent>();
+        }
+
+        public static NetworkComponent Network(this IEntity entity)
+        {
+            return entity.GetComponent<NetworkComponent>();
+        }
+
+        #endregion
     }
 }

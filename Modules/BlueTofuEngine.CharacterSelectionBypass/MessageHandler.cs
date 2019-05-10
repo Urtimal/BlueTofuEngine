@@ -36,6 +36,7 @@ namespace BlueTofuEngine.CharacterSelectionBypass
             characterEntity.AddComponent<AccountComponent>();
             characterEntity.AddComponent<NetworkComponent>();
             characterEntity.AddComponent<MapComponent>();
+            characterEntity.AddComponent<ContextComponent>();
             characterEntity.Account().AccountId = loginEntity.Account().AccountId;
             characterEntity.Network().Client = loginEntity.Network().Client;
             characterEntity.RefId = loginEntity.RefId;

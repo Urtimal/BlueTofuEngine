@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace BlueTofuEngine.World.GameData
+namespace BlueTofuEngine.Module.GameContext.Data
 {
     [GameData("MapPositions")]
     public class MapPosition

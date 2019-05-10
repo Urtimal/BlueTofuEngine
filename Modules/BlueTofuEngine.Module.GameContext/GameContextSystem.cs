@@ -23,10 +23,9 @@ namespace BlueTofuEngine.Module.GameContext
         {
             switch (args)
             {
-                case GameContextCreateRequestEventArgs gccera:
+                case GameContextCreateRequestEventArgs gccrea:
                     var breedId = entity.Playable().BreedId;
                     var breedData = GameDataManager<Breed>.Instance.Get(breedId);
-                    //CreateRoleplayContext(entity, 189531144);
                     CreateRoleplayContext(entity, breedData.SpawnMap);
                     break;
             }
@@ -43,7 +42,7 @@ namespace BlueTofuEngine.Module.GameContext
             entity.Send(new GameContextDestroyMessage());
             Task.Delay(TimeSpan.FromMilliseconds(100)).Wait();
             entity.Send(new GameContextCreateMessage(GameContextType.RolePlay));
-            
+
             entity.Map().MapId = map;
             entity.Map().CellId = 256;
             entity.Map().Direction = 1;
