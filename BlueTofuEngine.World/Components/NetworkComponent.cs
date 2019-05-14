@@ -9,7 +9,7 @@ namespace BlueTofuEngine.World.Components
 {
     public class NetworkComponent : IComponent
     {
-        public string Name => "network";
+        public string ComponentName => "network";
         public INetworkClient Client { get; set; }
     }
 }

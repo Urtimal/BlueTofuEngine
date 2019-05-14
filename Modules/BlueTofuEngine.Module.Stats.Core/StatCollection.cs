@@ -115,5 +115,12 @@ namespace BlueTofuEngine.Module.Stats
                 throw new InvalidOperationException("Stat '" + type + "' already added");
             _stats.Add(type, new StatDefinition(type, baseValue));
         }
+
+        public int Get(StatType type)
+        {
+            if (_stats.ContainsKey(type))
+                return _stats[type].Total;
+            return 0;
+        }
     }
 }

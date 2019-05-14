@@ -22,7 +22,7 @@ namespace BlueTofuEngine.World.Systems
         public void Start()
         {
             _cancelSource = new CancellationTokenSource();
-            Task.Run(updateSystems, _cancelSource.Token);
+            Task.Run((Action)updateSystems, _cancelSource.Token);
         }
 
         public void Stop()

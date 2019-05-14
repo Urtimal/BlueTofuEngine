@@ -8,7 +8,7 @@ namespace BlueTofuEngine.Module.Stats
 {
     public class StatComponent : IComponent
     {
-        public string Name => "stats";
+        public string ComponentName => "stats";
 
         public StatCollection Stats { get; set; }
     }

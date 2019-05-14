@@ -8,7 +8,7 @@ namespace BlueTofuEngine.Module.GameContext
 {
     public class MapComponent : IComponent
     {
-        public string Name => "map";
+        public string ComponentName => "map";
 
         public long MapId { get; set; }
         public ushort CellId { get; set; }

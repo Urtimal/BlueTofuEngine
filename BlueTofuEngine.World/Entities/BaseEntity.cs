@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BlueTofuEngine.World.Components;
+using BlueTofuEngine.World.Context;
 using BlueTofuEngine.World.Events;
 using BlueTofuEngine.World.Systems;
 
@@ -12,6 +13,7 @@ namespace BlueTofuEngine.World.Entities
     {
         public uint Id { get; private set; }
         public Guid RefId { get; set; }
+        public IContext Context { get; set; }
 
         protected readonly List<IComponent> _components;
 

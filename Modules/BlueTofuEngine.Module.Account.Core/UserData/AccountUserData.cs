@@ -1,12 +1,13 @@
-﻿using System;
+﻿using BlueTofuEngine.Core.Database;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.Module.Account.UserData
+namespace BlueTofuEngine.Module.Account
 {
-    public class AccountUserData
+    public class AccountUserData : UserData
     {
-        public uint Id { get; set; }
+        public uint AccountId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Nickname { get; set; }

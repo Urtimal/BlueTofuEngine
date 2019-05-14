@@ -2,7 +2,6 @@
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Events;
-using BlueTofuEngine.World.Extensions;
 using BlueTofuEngine.World.Systems;
 using System;
 using System.Collections.Generic;

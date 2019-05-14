@@ -6,7 +6,6 @@ using BlueTofuEngine.Core.Network;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Events;
-using BlueTofuEngine.World.Extensions;
 
 namespace BlueTofuEngine.World.Context
 {
@@ -33,8 +32,6 @@ namespace BlueTofuEngine.World.Context
 
         public void Tick(float deltaTime)
         {
-            foreach (var component in _components)
-                component.Tick(deltaTime);
         }
 
         #region Entities

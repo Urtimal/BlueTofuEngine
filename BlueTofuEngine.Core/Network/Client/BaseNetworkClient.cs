@@ -42,11 +42,11 @@ namespace BlueTofuEngine.Core.Network.Client
         {
             var data = new CustomDataWriter();
             message.Serialize(data);
-            var path = Path.Combine("packets", Nickname + "_" + _counter.ToString("0000") + "_" + ((NetworkMessage)message).MessageId + ".bin");
-            if (!Directory.Exists(Path.GetDirectoryName(path)))
-                Directory.CreateDirectory(Path.GetDirectoryName(path));
-            File.WriteAllBytes(path, data.GetBytes());
-            _counter++;
+            //var path = Path.Combine("packets", Nickname + "_" + _counter.ToString("0000") + "_" + ((NetworkMessage)message).MessageId + ".bin");
+            //if (!Directory.Exists(Path.GetDirectoryName(path)))
+            //    Directory.CreateDirectory(Path.GetDirectoryName(path));
+            //File.WriteAllBytes(path, data.GetBytes());
+            //_counter++;
             _client.Send(data.GetBytes());
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("[" + Nickname + "] >> " + message.GetName() + " | " + message.GetSummary());
@@ -92,7 +92,7 @@ namespace BlueTofuEngine.Core.Network.Client
             NetworkMessageHandlerService.Instance.Handle(this, (NetworkMessage)networkMessage);
         }
 
-        private void OnDisconnect()
+        protected virtual void OnDisconnect()
         {
             _client.DataReceived -= Handle;
             _client.Disconnected -= OnDisconnect;

@@ -6,6 +6,6 @@ namespace BlueTofuEngine.World.Components
 {
     public interface IComponent
     {
-        string Name { get; }
+        string ComponentName { get; }
     }
 }

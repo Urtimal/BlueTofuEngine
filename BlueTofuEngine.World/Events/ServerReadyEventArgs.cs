@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BlueTofuEngine.World.Events;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.World.Events
+namespace BlueTofuEngine.Module.Base
 {
     public class ServerReadyEventArgs : SystemEventArgs
     {

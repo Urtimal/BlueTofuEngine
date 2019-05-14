@@ -1,5 +1,6 @@
 ﻿using BlueTofuEngine.Core;
 using BlueTofuEngine.Core.Serialization;
+using BlueTofuEngine.Module.GameContext;
 using BlueTofuEngine.Module.Stats;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Components;
@@ -39,7 +40,7 @@ namespace BlueTofuEngine.CharacterSelectionBypass
             var entity = EntityFactory.Instance.CreateCharacter();
             var entityLook = entity.GetComponent<LookComponent>();
             var entityFighter = entity.GetComponent<FighterComponent>();
-            var entityPlayable = entity.GetComponent<PlayableComponent>();
+            var entityPlayable = entity.GetComponent<CharacterComponent>();
             var entityStats = entity.Stats();
 
             entityLook.EntityName = "ByPass" + Guid.NewGuid().ToString().Substring(0, 4);

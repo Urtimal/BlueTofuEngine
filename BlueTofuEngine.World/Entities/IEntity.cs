@@ -1,4 +1,5 @@
 ﻿using BlueTofuEngine.World.Components;
+using BlueTofuEngine.World.Context;
 using BlueTofuEngine.World.Events;
 using BlueTofuEngine.World.Systems;
 using System;
@@ -11,6 +12,7 @@ namespace BlueTofuEngine.World.Entities
     {
         uint Id { get; }
         Guid RefId { get; set; }
+        IContext Context { get; set; }
 
         void AddComponent<TComponent>() where TComponent : IComponent, new();
         void AddComponent(Type type);

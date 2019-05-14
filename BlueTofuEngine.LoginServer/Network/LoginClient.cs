@@ -1,6 +1,7 @@
 ﻿using BlueTofuEngine.Core.Network;
 using BlueTofuEngine.Core.Network.Client;
 using BlueTofuEngine.Core.Utils;
+using BlueTofuEngine.Module.Base;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Events;
 using ErpoowEngine.Network;
@@ -18,12 +19,17 @@ namespace BlueTofuEngine.LoginServer.Network
 
         protected override void OnConnected()
         {
-            var accountId = (uint)RandomUtils.Next(1, byte.MaxValue);
-            var entity = EntityFactory.Instance.CreateLogin(this, accountId);
-            Nickname = accountId.ToString();
+            var entity = EntityFactory.Instance.CreateLogin(this);
+            Nickname = "Unknown";
 
-            Console.WriteLine("New client (" + Endpoint + ") => " + Nickname);
+            Console.WriteLine("New client (" + Endpoint + ")");
             entity.Notify(new ClientConnectedEventArgs());
+        }
+
+        protected override void OnDisconnect()
+        {
+            Console.WriteLine("Client disconnected (" + Nickname + ")");
+            base.OnDisconnect();
         }
     }
 }

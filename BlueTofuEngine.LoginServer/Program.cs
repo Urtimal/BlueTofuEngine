@@ -30,7 +30,8 @@ namespace BlueTofuEngine.LoginServer
 
         public override void Configure(IAppBuilder app)
         {
-            app.UseBypassLogin();
+            //app.UseBypassLogin();
+            app.UseLogin();
         }
     }
 }

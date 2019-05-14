@@ -8,7 +8,7 @@ namespace BlueTofuEngine.Module.Account
 {
     public class AccountComponent : IComponent
     {
-        public string Name => "account";
+        public string ComponentName => "account";
         public uint AccountId { get; set; }
     }
 }

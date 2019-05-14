@@ -3,6 +3,8 @@ using BlueTofuEngine.Core.Network;
 using BlueTofuEngine.Core.Network.Client;
 using BlueTofuEngine.Core.Network.Message;
 using BlueTofuEngine.GameServer;
+using BlueTofuEngine.Module.Account;
+using BlueTofuEngine.Module.GameContext;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Events;
@@ -44,7 +46,7 @@ namespace BlueTofuEngine.CharacterSelectionBypass
 
             client.Send(new CharacterSelectedSuccessMessage(characterEntity));
             client.Send(new CharacterLoadingCompleteMessage());
-            characterEntity.Notify(new ClientEnteringGameEventArgs(characterEntity));
+            characterEntity.Notify(new ClientEnteringGameEventArgs());
         }
     }
 }
