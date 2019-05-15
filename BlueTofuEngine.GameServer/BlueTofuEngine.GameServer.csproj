@@ -10,8 +10,11 @@
     <ProjectReference Include="..\BlueTofuEngine.GameServer.Core\BlueTofuEngine.GameServer.Core.csproj" />
     <ProjectReference Include="..\BlueTofuEngine.World\BlueTofuEngine.World.csproj" />
     <ProjectReference Include="..\Modules\BlueTofuEngine.CharacterSelectionBypass\BlueTofuEngine.CharacterSelectionBypass.csproj" />
+    <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Account\BlueTofuEngine.Module.Account.csproj" />
+    <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Character\BlueTofuEngine.Module.Character.csproj" />
     <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Chat\BlueTofuEngine.Module.Chat.csproj" />
     <ProjectReference Include="..\Modules\BlueTofuEngine.Module.GameContext\BlueTofuEngine.Module.GameContext.csproj" />
+    <ProjectReference Include="..\Modules\BlueTofuEngine.Module.StandardApproach\BlueTofuEngine.Module.StandardApproach.csproj" />
     <ProjectReference Include="..\Modules\BlueTofuEngine.Modules.CommonBasic\BlueTofuEngine.Modules.CommonBasic.csproj" />
   </ItemGroup>
 

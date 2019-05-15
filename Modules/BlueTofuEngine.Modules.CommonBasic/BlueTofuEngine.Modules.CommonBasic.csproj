@@ -7,6 +7,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BlueTofuEngine.Core\BlueTofuEngine.Core.csproj" />
     <ProjectReference Include="..\..\BlueTofuEngine.World\BlueTofuEngine.World.csproj" />
+    <ProjectReference Include="..\BlueTofuEngine.Module.BaseApproach\BlueTofuEngine.Module.BaseApproach.csproj" />
+    <ProjectReference Include="..\BlueTofuEngine.Module.CommonBasic.Core\BlueTofuEngine.Module.CommonBasic.Core.csproj" />
   </ItemGroup>
 
 </Project>

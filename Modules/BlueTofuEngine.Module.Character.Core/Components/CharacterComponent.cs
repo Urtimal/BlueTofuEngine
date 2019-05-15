@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.Module.Base
+namespace BlueTofuEngine.Module.Character
 {
     public class CharacterComponent : IComponent
     {
-        public string ComponentName => "playable";
+        public string ComponentName => "character";
 
-        public int BreedId { get; set; }
-        public bool Gender { get; set; }
+        public Breeds Breed { get; set; }
+        public Gender Gender { get; set; }
     }
 }

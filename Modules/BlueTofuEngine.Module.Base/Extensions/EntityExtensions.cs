@@ -12,10 +12,5 @@ namespace BlueTofuEngine
         {
             return entity.GetComponent<LookComponent>();
         }
-
-        public static CharacterComponent Character(this IEntity entity)
-        {
-            return entity.GetComponent<CharacterComponent>();
-        }
     }
 }

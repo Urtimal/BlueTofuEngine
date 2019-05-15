@@ -15,6 +15,7 @@ namespace BlueTofuEngine.Module.BaseLogin
         public string Address { get; set; }
         public List<int> Ports { get; set; }
         public bool CanCreateNewCharacter { get; set; }
+        public string Ticket { get; set; }
 
         public SelectedServerDataMessage(ushort messageId = Id) : base(messageId)
         {
@@ -23,7 +24,14 @@ namespace BlueTofuEngine.Module.BaseLogin
 
         protected override void serializeContent(ICustomDataWriter writer)
         {
-
+            writer.WriteVarShort((short)ServerId);
+            writer.WriteUTF(Address);
+            writer.WriteShort((short)Ports.Count);
+            foreach (var port in Ports)
+                writer.WriteInt(port);
+            writer.WriteBool(CanCreateNewCharacter);
+            writer.WriteVarInt(Ticket.Length);
+            writer.WriteUTFBytes(Ticket);
         }
     }
 }

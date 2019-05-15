@@ -1,6 +1,7 @@
 ﻿using BlueTofuEngine.Core.AppBuilder;
 using BlueTofuEngine.Core.Command;
 using BlueTofuEngine.Core.Network;
+using BlueTofuEngine.Core.Network.Message;
 using BlueTofuEngine.GameServer.Network;
 using BlueTofuEngine.World.Context;
 using BlueTofuEngine.World.Events;
@@ -53,7 +54,7 @@ namespace BlueTofuEngine.GameServer
             {
                 var args = command.Split(',').Select(x => x.Trim());
                 var messageId = ushort.Parse(args.First());
-                var message = new CustomNetworkMessage(messageId);
+                var message = new BuiltNetworkMessage(messageId);
 
                 foreach (var arg in args.Skip(1))
                 {

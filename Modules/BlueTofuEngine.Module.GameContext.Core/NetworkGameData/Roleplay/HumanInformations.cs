@@ -18,7 +18,7 @@ namespace BlueTofuEngine.Module.GameContext
 
         public override void Initialize(IEntity entity)
         {
-            Gender = entity.Character().Gender;
+            Gender = entity.Character().Gender == Character.Gender.Female;
         }
 
         public override void Serialize(ICustomDataWriter writer)

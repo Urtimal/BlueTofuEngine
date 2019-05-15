@@ -48,7 +48,7 @@ namespace BlueTofuEngine.Core.Database
         {
             return _context.Set<TUserData>().FirstOrDefault(predicate);
         }
-
+        
         public IEnumerable<TUserData> GetAll<TUserData>() where TUserData : UserData
         {
             return _context.Set<TUserData>().ToList();
@@ -76,6 +76,12 @@ namespace BlueTofuEngine.Core.Database
                 _context.Set<TUserData>().Remove(data);
                 _context.SaveChanges();
             }
+        }
+
+        public void Reload<TUserData>() where TUserData : UserData
+        {
+            foreach (var entity in GetAll<TUserData>())
+                _context.Entry(entity).Reload();                    
         }
     }
 }

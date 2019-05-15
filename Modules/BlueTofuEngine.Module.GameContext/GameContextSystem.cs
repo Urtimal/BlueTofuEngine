@@ -22,8 +22,8 @@ namespace BlueTofuEngine.Module.GameContext
             switch (args)
             {
                 case GameContextCreateRequestEventArgs gccrea:
-                    var breedId = entity.Character().BreedId;
-                    var breedData = GameDataManager<Breed>.Instance.Get(breedId);
+                    var breed = entity.Character().Breed;
+                    var breedData = GameDataManager<Breed>.Instance.Get((int)breed);
                     CreateRoleplayContext(entity, breedData.SpawnMap);
                     break;
             }

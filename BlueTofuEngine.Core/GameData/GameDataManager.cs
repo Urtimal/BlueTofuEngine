@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Reflection;
+using System.Linq;
 
 namespace BlueTofuEngine.Core.GameData
 {
@@ -44,6 +45,14 @@ namespace BlueTofuEngine.Core.GameData
             {
                 return default;
             }
+        }
+
+        public IEnumerable<int> GetAllId()
+        {
+            var path = Path.Combine("data", _genericName);
+            return Directory.EnumerateFiles(path)
+                            .Where(x => Path.GetExtension(x).Equals(".json", StringComparison.OrdinalIgnoreCase))
+                            .Select(x => int.Parse(Path.GetFileNameWithoutExtension(x)));
         }
     }
 }

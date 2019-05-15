@@ -1,5 +1,7 @@
 ﻿using BlueTofuEngine.Core.AppBuilder;
 using BlueTofuEngine.Core.Network.Message;
+using BlueTofuEngine.Modules.CommonBasic;
+using BlueTofuEngine.World.Systems;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -13,6 +15,7 @@ namespace BlueTofuEngine.GameServer
         {
             NetworkMessageRepository.Instance.SearchMessagesInAssembly(Assembly.GetExecutingAssembly());
             NetworkMessageHandlerService.Instance.SearchHandlersInAssembly(Assembly.GetExecutingAssembly());
+            SystemManager.Instance.Add<CommonBasicSystem>();
         }
     }
 }

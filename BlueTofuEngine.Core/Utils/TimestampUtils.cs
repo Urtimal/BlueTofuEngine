@@ -20,5 +20,10 @@ namespace BlueTofuEngine.Core.Utils
         {
             return GetFromDate(DateTime.UtcNow);
         }
+
+        public static double GetFromNowLong()
+        {
+            return GetFromDateLong(DateTime.UtcNow);
+        }
     }
 }

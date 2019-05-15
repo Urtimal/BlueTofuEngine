@@ -5,8 +5,10 @@ using BlueTofuEngine.Core.Utils;
 using BlueTofuEngine.Module.Account;
 using BlueTofuEngine.Module.Base;
 using BlueTofuEngine.Module.BaseLogin;
+using BlueTofuEngine.Module.BaseLogin.Utils;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Events;
+using BlueTofuEngine.World.GameData;
 using BlueTofuEngine.World.Systems;
 using System;
 using System.Collections.Generic;
@@ -31,20 +33,7 @@ namespace BlueTofuEngine.Module.RdmLogin
                     var hashedPassword = MD5Utils.Hash(carea.Password);
                     var account = UserDataService.Instance.Get<AccountUserData>(x => x.Username.Equals(carea.Username));
                     if (account == null)
-                    {
-                        account = new AccountUserData
-                        {
-                            CreationDate = DateTime.Now,
-                            IsAdmin = false,
-                            Nickname = carea.Username,
-                            AccountId = (uint)UserDataService.Instance.GetAll<AccountUserData>().Count() + 1,
-                            LastConnectionDate = DateTime.Now,
-                            Username = carea.Username,
-                            Password = hashedPassword,
-                            SecretQuestion = "Pas de question secrete, pas de suppression :)"
-                        };
-                        UserDataService.Instance.Add(account);
-                    }
+                        account = CreateAccount(carea.Username, hashedPassword);
                     else
                     {
                         if (!account.Password.Equals(hashedPassword))
@@ -58,7 +47,7 @@ namespace BlueTofuEngine.Module.RdmLogin
                     UserDataService.Instance.Update(account);
                     AuthentificationSuccess(entity, account);
                     //ServerList(entity);
-                    RedirectToServer(entity, account, "127.0.0.1:5556", 1);
+                    RedirectToServer(entity, "127.0.0.1", 5556, 1);
                     break;
             }
         }
@@ -68,6 +57,34 @@ namespace BlueTofuEngine.Module.RdmLogin
         }
 
         #region Network
+
+        private AccountUserData CreateAccount(string username, string password)
+        {
+            var account = new AccountUserData
+            {
+                CreationDate = DateTime.Now,
+                IsAdmin = false,
+                Nickname = username,
+                AccountId = (uint)UserDataService.Instance.GetAll<AccountUserData>().Count() + 1,
+                LastConnectionDate = DateTime.Now,
+                Username = username,
+                Password = password,
+                SecretQuestion = "Pas de question secrète, pas de suppression :)"
+            };
+            string breeds = string.Join(",", GameDataManager<Breed>.Instance.GetAllId());
+            var capabilities = new AccountCapabilityUserData
+            {
+                AccountId = account.AccountId,
+                CanCreateCharacter = true,
+                Status = (int)GameHierarchy.Player,
+                BreedsVisibile = breeds,
+                BreedsAvailable = breeds
+            };
+            UserDataService.Instance.Add(account);
+            UserDataService.Instance.Add(capabilities);
+
+            return account;
+        }
 
         private void AuthentificationFailed(IEntity entity, IdentificationFailureReason reason)
         {
@@ -98,9 +115,27 @@ namespace BlueTofuEngine.Module.RdmLogin
             entity.Send(slm);
         }
 
-        private void RedirectToServer(IEntity entity, AccountUserData account, string host, int serverId)
+        private void RedirectToServer(IEntity entity, string host, int port, int serverId)
         {
-
+            var ssdm = new SelectedServerDataMessage
+            {
+                ServerId = serverId,
+                Address = host,
+                Ports = new List<int> { port },
+                CanCreateNewCharacter = true,
+                Ticket = TicketGenerator.Generate(32)
+            };
+            var account = UserDataService.Instance.Get<AccountUserData>(x => x.AccountId == entity.Account().AccountId);
+            account.Token = ssdm.Ticket;
+            UserDataService.Instance.Update(account);
+            
+            Task.Run(async () =>
+            {
+                await Task.Delay(TimeSpan.FromMilliseconds(500));
+                entity.Send(ssdm);
+                await Task.Delay(TimeSpan.FromMilliseconds(500));
+                entity.Network().Client.Disconnect();
+            });
         }
 
         #endregion

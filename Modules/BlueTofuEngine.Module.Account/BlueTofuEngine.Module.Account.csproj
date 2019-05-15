@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlueTofuEngine.Module.Account.Core\BlueTofuEngine.Module.Account.Core.csproj" />
+    <ProjectReference Include="..\BlueTofuEngine.Module.BaseApproach\BlueTofuEngine.Module.BaseApproach.csproj" />
   </ItemGroup>
 
 </Project>

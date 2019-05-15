@@ -25,5 +25,11 @@ namespace BlueTofuEngine.GameServer.Network
             Console.WriteLine("New client (" + Endpoint + ")");
             entity.Notify(new ClientConnectedEventArgs());
         }
+
+        protected override void OnDisconnect()
+        {
+            Console.WriteLine("Client disconnected (" + Nickname + ")");
+            base.OnDisconnect();
+        }
     }
 }

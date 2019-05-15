@@ -28,7 +28,9 @@ namespace BlueTofuEngine.CharacterSelectionBypass
         {
             base.Initialize(entity);
 
-            Gender = entity.Character()?.Gender ?? false;
+            var character = entity.Character();
+            if (character != null)
+                Gender = character.Gender == Module.Character.Gender.Female;
         }
     }
 }

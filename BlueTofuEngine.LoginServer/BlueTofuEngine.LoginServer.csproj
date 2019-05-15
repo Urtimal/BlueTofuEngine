@@ -13,4 +13,10 @@
     <ProjectReference Include="..\Modules\BlueTofuEngine.Module.RdmLogin\BlueTofuEngine.Module.RdmLogin.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="RawDataMessage.swf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
