@@ -27,7 +27,7 @@ namespace BlueTofuEngine.CharacterSelectionBypass
         {
             base.Initialize(entity);
             
-            Name =  entity.Look()?.EntityName ?? "unknown";
+            Name =  entity.Look()?.Name ?? "unknown";
         }
     }
 }

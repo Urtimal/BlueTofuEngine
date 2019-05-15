@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.World.GameType.Game.Context.Roleplay
+namespace BlueTofuEngine.Module.GameContext
 {
     public class GameRolePlayActorInformations : GameContextActorInformations
     {

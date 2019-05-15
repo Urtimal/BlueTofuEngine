@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BlueTofuEngine.Core.Serialization;
+using BlueTofuEngine.Module.Stats;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 
@@ -27,7 +28,7 @@ namespace BlueTofuEngine.CharacterSelectionBypass
         {
             base.Initialize(entity);
 
-            Level = (short)(entity.Fighter()?.Level ?? 1);
+            Level = (short)(entity.Stats()?.Stats.Get(StatType.Level) ?? 1);
         }
     }
 }

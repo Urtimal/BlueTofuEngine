@@ -5,8 +5,6 @@ using BlueTofuEngine.World;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Events;
-using BlueTofuEngine.World.Extensions;
-using BlueTofuEngine.World.Game.GameContext;
 using BlueTofuEngine.World.GameData;
 using BlueTofuEngine.World.Systems;
 using System;
@@ -46,14 +44,14 @@ namespace BlueTofuEngine.Module.Chat
             var message = new ChatServerMessage
             {
                 SenderId = entity.Id,
-                SenderName = entity.Look().EntityName,
+                SenderName = entity.Look().Name,
                 SenderAccountId = (int)entity.Account().AccountId,
                 Channel = (int)ccmea.Channel,
                 Content = ccmea.Content,
                 FingerPrint = ccmea.Content,
                 Prefix = string.Empty
             };
-            entity.Context()?.Context?.Send(message);
+            //entity.Context()?.Context?.Send(message);
         }
     }
 }

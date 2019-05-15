@@ -6,8 +6,6 @@ using BlueTofuEngine.World;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Events;
-using BlueTofuEngine.World.Extensions;
-using BlueTofuEngine.World.Game.GameContext;
 using BlueTofuEngine.World.GameData;
 using BlueTofuEngine.World.Systems;
 using System;
@@ -24,7 +22,7 @@ namespace BlueTofuEngine.Module.GameContext
             switch (args)
             {
                 case GameContextCreateRequestEventArgs gccrea:
-                    var breedId = entity.Playable().BreedId;
+                    var breedId = entity.Character().BreedId;
                     var breedData = GameDataManager<Breed>.Instance.Get(breedId);
                     CreateRoleplayContext(entity, breedData.SpawnMap);
                     break;
@@ -45,7 +43,7 @@ namespace BlueTofuEngine.Module.GameContext
 
             entity.Map().MapId = map;
             entity.Map().CellId = 256;
-            entity.Map().Direction = 1;
+            entity.Map().Direction = Direction.DownRight;
             entity.Send(new CurrentMapMessage(map));
 
             entity.Send(new CharacterStatsListMessage(entity));

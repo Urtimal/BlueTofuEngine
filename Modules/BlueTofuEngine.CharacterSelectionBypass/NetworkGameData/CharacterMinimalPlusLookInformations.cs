@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BlueTofuEngine.Core.Serialization;
+using BlueTofuEngine.Module.Base;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 
@@ -28,9 +29,10 @@ namespace BlueTofuEngine.CharacterSelectionBypass
         public override void Initialize(IEntity entity)
         {
             base.Initialize(entity);
-            
-            Look = entity.Look()?.Look;
-            Breed = entity.Playable()?.BreedId ?? 1;
+
+            Look = new EntityLook();
+            Look.Initialize(entity);
+            Breed = entity.Character()?.BreedId ?? 1;
         }
     }
 }

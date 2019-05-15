@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using BlueTofuEngine.Core.Serialization;
+using BlueTofuEngine.Module.Base;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
-using BlueTofuEngine.World.Game;
 
 namespace BlueTofuEngine.Module.GameContext
 {

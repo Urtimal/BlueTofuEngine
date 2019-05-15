@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BlueTofuEngine.Core\BlueTofuEngine.Core.csproj" />
     <ProjectReference Include="..\BlueTofuEngine.World\BlueTofuEngine.World.csproj" />
+    <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Account.Core\BlueTofuEngine.Module.Account.Core.csproj" />
     <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Stats.Core\BlueTofuEngine.Module.Stats.Core.csproj" />
   </ItemGroup>
 

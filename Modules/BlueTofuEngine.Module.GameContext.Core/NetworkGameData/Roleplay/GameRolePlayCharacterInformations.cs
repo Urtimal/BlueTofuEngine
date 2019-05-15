@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using BlueTofuEngine.Core.Serialization;
-using BlueTofuEngine.World.GameType.Character.Alignment;
 
-namespace BlueTofuEngine.World.GameType.Game.Context.Roleplay
+namespace BlueTofuEngine.Module.GameContext
 {
     public class GameRolePlayCharacterInformations : GameRolePlayHumanoidInformations
     {

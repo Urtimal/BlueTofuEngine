@@ -5,7 +5,7 @@ using BlueTofuEngine.Core.Serialization;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 
-namespace BlueTofuEngine.World.GameType.Game.Context.Roleplay
+namespace BlueTofuEngine.Module.GameContext
 {
     public class GameRolePlayNamedActorInformations : GameRolePlayActorInformations
     {
@@ -20,7 +20,7 @@ namespace BlueTofuEngine.World.GameType.Game.Context.Roleplay
         {
             base.Initialize(entity);
 
-            Name = entity.Look().EntityName;
+            Name = entity.Look().Name;
         }
 
         public override void Serialize(ICustomDataWriter writer)

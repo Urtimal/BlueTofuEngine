@@ -1,4 +1,5 @@
 ﻿using BlueTofuEngine.CharacterSelectionBypass.Messages;
+using BlueTofuEngine.Module.Base;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Events;

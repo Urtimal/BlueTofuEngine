@@ -1,11 +1,9 @@
 ﻿using BlueTofuEngine.Core.GameData;
 using BlueTofuEngine.Core.Network.Message;
 using BlueTofuEngine.Core.Serialization;
+using BlueTofuEngine.Module.GameContext.Data;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.GameData;
-using BlueTofuEngine.World.GameType.Game.Context;
-using BlueTofuEngine.World.GameType.Game.Context.Fight;
-using BlueTofuEngine.World.GameType.Game.Context.Roleplay;
 using System;
 using System.Collections.Generic;
 using System.Text;

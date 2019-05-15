@@ -4,7 +4,7 @@ using System.Text;
 using BlueTofuEngine.Core.Serialization;
 using BlueTofuEngine.World;
 
-namespace BlueTofuEngine.CharacterSelectionBypass
+namespace BlueTofuEngine.Module.GameContext
 {
     public class ActorAlignmentInformations : NetworkType
     {

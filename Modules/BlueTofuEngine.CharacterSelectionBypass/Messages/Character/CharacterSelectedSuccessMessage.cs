@@ -2,7 +2,6 @@
 using BlueTofuEngine.Core.Serialization;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
-using BlueTofuEngine.World.Game.Character.Choice;
 using System;
 using System.Collections.Generic;
 using System.Text;

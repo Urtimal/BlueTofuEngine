@@ -23,7 +23,7 @@ namespace BlueTofuEngine.Module.Stats.GameType
         public override void Initialize(IEntity entity)
         {
             Stats = entity.Stats().Stats;
-            Level = entity.Fighter().Level;
+            Level = Stats.Get(StatType.Level);
         }
 
         public override void Serialize(ICustomDataWriter writer)

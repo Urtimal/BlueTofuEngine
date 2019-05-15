@@ -1,4 +1,5 @@
 ﻿using BlueTofuEngine.Core.Network;
+using BlueTofuEngine.Module.Account;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
@@ -10,14 +11,13 @@ namespace BlueTofuEngine.GameServer
 {
     public static class GameEntityExtensions
     {
-        public static IEntity CreateClient(this EntityFactory factory, INetworkClient client, uint accountId)
+        public static IEntity CreateClient(this EntityFactory factory, INetworkClient client)
         {
             var entity = EntityBuilder.Create()
                                 .AddComponent<NetworkComponent>()
                                 .AddComponent<AccountComponent>()
                                 .Build(EntityManager.Instance.GetNextId());
 
-            entity.GetComponent<AccountComponent>().AccountId = accountId;
             entity.GetComponent<NetworkComponent>().Client = client;
 
             entity.RefId = client.Id;

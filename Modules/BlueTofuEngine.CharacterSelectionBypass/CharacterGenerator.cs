@@ -1,11 +1,12 @@
 ﻿using BlueTofuEngine.Core;
 using BlueTofuEngine.Core.Serialization;
+using BlueTofuEngine.Module.Base;
+using BlueTofuEngine.Module.Base.Utils;
 using BlueTofuEngine.Module.GameContext;
 using BlueTofuEngine.Module.Stats;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
-using BlueTofuEngine.World.Game;
 using BlueTofuEngine.World.GameData;
 using System;
 using System.Collections.Generic;
@@ -34,20 +35,19 @@ namespace BlueTofuEngine.CharacterSelectionBypass
             var head = possibleHeads.ElementAt(rand.Next(0, possibleHeads.Count()));
 
             var look = EntityLookParser.Parse(gender == 0 ? breed.MaleLook : breed.FemaleLook);
-            look.Skins.Add(short.Parse(head.Skin));
-            look.IndexedColors.AddRange(gender == 0 ? breed.MaleColors : breed.FemaleColors);
-
+            
             var entity = EntityFactory.Instance.CreateCharacter();
-            var entityLook = entity.GetComponent<LookComponent>();
-            var entityFighter = entity.GetComponent<FighterComponent>();
-            var entityPlayable = entity.GetComponent<CharacterComponent>();
+            var entityLook = entity.Look();
+            var entityCharacter = entity.Character();
             var entityStats = entity.Stats();
 
-            entityLook.EntityName = "ByPass" + Guid.NewGuid().ToString().Substring(0, 4);
-            entityLook.Look = look;
-            entityFighter.Level = 1;
-            entityPlayable.BreedId = breed.Id;
-            entityPlayable.Gender = gender == 1;
+            entityLook.Name = "ByPass" + Guid.NewGuid().ToString().Substring(0, 4);
+            entityLook.BonesId = look.BonesId;
+            entityLook.AddSkin(short.Parse(head.Skin));
+            entityLook.IndexedColors.AddRange(gender == 0 ? breed.MaleColors : breed.FemaleColors);
+            entityLook.Scales.AddRange(look.Scales);
+            entityCharacter.BreedId = breed.Id;
+            entityCharacter.Gender = gender == 1;
             entityStats.Stats = new StatCollection();
 
             return entity;

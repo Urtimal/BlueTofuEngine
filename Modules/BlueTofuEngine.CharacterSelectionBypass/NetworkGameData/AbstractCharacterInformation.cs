@@ -1,5 +1,6 @@
 ﻿using BlueTofuEngine.Core.Network;
 using BlueTofuEngine.Core.Serialization;
+using BlueTofuEngine.World;
 using BlueTofuEngine.World.Entities;
 using System;
 using System.Collections.Generic;

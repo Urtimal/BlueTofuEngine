@@ -5,7 +5,7 @@ using BlueTofuEngine.Core.Serialization;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 
-namespace BlueTofuEngine.World.GameType.Game.Context.Roleplay
+namespace BlueTofuEngine.Module.GameContext
 {
     public class GameRolePlayHumanoidInformations : GameRolePlayNamedActorInformations
     {

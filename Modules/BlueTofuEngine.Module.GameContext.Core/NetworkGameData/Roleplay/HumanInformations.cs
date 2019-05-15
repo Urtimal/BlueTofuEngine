@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using BlueTofuEngine.Core.Serialization;
-using BlueTofuEngine.World.Components;
+using BlueTofuEngine.World;
 using BlueTofuEngine.World.Entities;
-using BlueTofuEngine.World.GameType.Character.Restriction;
 
-namespace BlueTofuEngine.World.GameType.Game.Context.Roleplay
+namespace BlueTofuEngine.Module.GameContext
 {
     public class HumanInformations : NetworkType
     {
@@ -19,7 +18,7 @@ namespace BlueTofuEngine.World.GameType.Game.Context.Roleplay
 
         public override void Initialize(IEntity entity)
         {
-            Gender = entity.Playable().Gender;
+            Gender = entity.Character().Gender;
         }
 
         public override void Serialize(ICustomDataWriter writer)
