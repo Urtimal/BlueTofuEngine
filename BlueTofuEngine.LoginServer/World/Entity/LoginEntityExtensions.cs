@@ -20,6 +20,8 @@ namespace BlueTofuEngine.LoginServer
             
             entity.GetComponent<NetworkComponent>().Client = client;
 
+            entity.RefId = client.Id;
+
             EntityManager.Instance.Add(entity);
             return entity;
         }

@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.GameServer.Network
+namespace BlueTofuEngine.Core.Network.Message
 {
-    public class CustomNetworkMessage : NetworkMessage
+    public class BuiltNetworkMessage : NetworkMessage
     {
         private readonly CustomDataWriter _writer;
 
-        public CustomNetworkMessage(ushort messageId) : base(messageId)
+        public BuiltNetworkMessage(ushort messageId) : base(messageId)
         {
             _writer = new CustomDataWriter();
         }

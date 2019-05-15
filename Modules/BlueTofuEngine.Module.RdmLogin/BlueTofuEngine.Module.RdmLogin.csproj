@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,8 +8,8 @@
     <ProjectReference Include="..\..\BlueTofuEngine.Core\BlueTofuEngine.Core.csproj" />
     <ProjectReference Include="..\..\BlueTofuEngine.World\BlueTofuEngine.World.csproj" />
     <ProjectReference Include="..\BlueTofuEngine.Module.Account.Core\BlueTofuEngine.Module.Account.Core.csproj" />
+    <ProjectReference Include="..\BlueTofuEngine.Module.BaseLogin\BlueTofuEngine.Module.BaseLogin.csproj" />
     <ProjectReference Include="..\BlueTofuEngine.Module.Base\BlueTofuEngine.Module.Base.csproj" />
-    <ProjectReference Include="..\BlueTofuEngine.Module.Login.Core\BlueTofuEngine.Module.Login.Core.csproj" />
   </ItemGroup>
 
 </Project>

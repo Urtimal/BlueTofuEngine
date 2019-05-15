@@ -1,6 +1,7 @@
 ﻿using BlueTofuEngine.Core.AppBuilder;
 using BlueTofuEngine.Core.Network.Message;
-using BlueTofuEngine.Module.Login;
+using BlueTofuEngine.Module.BaseLogin;
+using BlueTofuEngine.Module.RdmLogin;
 using BlueTofuEngine.World.Systems;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,9 @@ namespace BlueTofuEngine.LoginServer
 {
     public static class LoginExtensions
     {
-        public static void UseLogin(this IAppBuilder app)
+        public static void UseRdmLogin(this IAppBuilder app)
         {
+            NetworkMessageRepository.Instance.SearchMessagesInAssembly(Assembly.GetAssembly(typeof(IdentificationMessage)));
             NetworkMessageRepository.Instance.SearchMessagesInAssembly(Assembly.GetExecutingAssembly());
             NetworkMessageHandlerService.Instance.SearchHandlersInAssembly(Assembly.GetExecutingAssembly());
             SystemManager.Instance.Add<LoginSystem>();

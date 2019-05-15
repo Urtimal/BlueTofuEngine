@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.Module.Login
+namespace BlueTofuEngine.Module.BaseLogin
 {
     [NetworkMessage(Id)]
     public class IdentificationMessage : NetworkMessage

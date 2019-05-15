@@ -25,10 +25,5 @@ namespace BlueTofuEngine.GameServer
             EntityManager.Instance.Add(entity);
             return entity;
         }
-
-        public static IEntity GetEntity(this INetworkClient client)
-        {
-            return EntityManager.Instance.GetByRef(client.Id);
-        }
     }
 }

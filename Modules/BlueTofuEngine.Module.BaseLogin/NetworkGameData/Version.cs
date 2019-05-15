@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.Module.Login
+namespace BlueTofuEngine.Module.BaseLogin
 {
     public class Version : NetworkType
     {
