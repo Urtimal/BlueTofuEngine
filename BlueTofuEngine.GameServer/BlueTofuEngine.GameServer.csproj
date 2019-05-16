@@ -15,6 +15,7 @@
     <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Chat\BlueTofuEngine.Module.Chat.csproj" />
     <ProjectReference Include="..\Modules\BlueTofuEngine.Module.GameContext\BlueTofuEngine.Module.GameContext.csproj" />
     <ProjectReference Include="..\Modules\BlueTofuEngine.Module.StandardApproach\BlueTofuEngine.Module.StandardApproach.csproj" />
+    <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Stats\BlueTofuEngine.Module.Stats.csproj" />
     <ProjectReference Include="..\Modules\BlueTofuEngine.Modules.CommonBasic\BlueTofuEngine.Modules.CommonBasic.csproj" />
   </ItemGroup>
 

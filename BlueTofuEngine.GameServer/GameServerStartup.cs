@@ -20,6 +20,7 @@ namespace BlueTofuEngine.GameServer
         {
             app.UseAccounts();
             app.UseCharacters();
+            app.UseStats();
 
             app.UseStandardApproach();
             app.UseGameContext();

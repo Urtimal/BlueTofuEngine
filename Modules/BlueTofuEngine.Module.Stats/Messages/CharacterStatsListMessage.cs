@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.Module.Stats.Messages
+namespace BlueTofuEngine.Module.Stats
 {
     [NetworkMessage(Id)]
     public class CharacterStatsListMessage : NetworkMessage

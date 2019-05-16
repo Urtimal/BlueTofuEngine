@@ -22,5 +22,10 @@ namespace BlueTofuEngine.Module.Character
         {
             writer.WriteByte((byte)Result);
         }
+
+        public override string GetSummary()
+        {
+            return Result.ToString();
+        }
     }
 }

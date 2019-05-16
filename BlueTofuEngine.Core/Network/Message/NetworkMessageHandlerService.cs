@@ -49,10 +49,20 @@ namespace BlueTofuEngine.Core.Network.Message
         {
             if (_handlers.TryGetValue(message.MessageId, out List<MethodInfo> handlers))
             {
-                foreach (var handler in handlers)
+                try
                 {
-                    var args = new object[] { client, message };
-                    handler.Invoke(null, args);
+                    foreach (var handler in handlers)
+                    {
+                        var args = new object[] { client, message };
+                        handler.Invoke(null, args);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("[" + client.Nickname + "] " + e.GetType().FullName + ": " + e.Message);
+                    Console.WriteLine(e.StackTrace);
+                    Console.ResetColor();
                 }
             }
         }

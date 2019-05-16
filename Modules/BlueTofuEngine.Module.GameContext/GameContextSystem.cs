@@ -1,7 +1,6 @@
 ﻿using BlueTofuEngine.Core.GameData;
 using BlueTofuEngine.Module.GameContext.Core;
 using BlueTofuEngine.Module.GameContext.Messages;
-using BlueTofuEngine.Module.Stats.Messages;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
@@ -46,7 +45,7 @@ namespace BlueTofuEngine.Module.GameContext
             entity.Map().Direction = Direction.DownRight;
             entity.Send(new CurrentMapMessage(map));
 
-            entity.Send(new CharacterStatsListMessage(entity));
+            //entity.Send(new CharacterStatsListMessage(entity));
         }
 
         #endregion

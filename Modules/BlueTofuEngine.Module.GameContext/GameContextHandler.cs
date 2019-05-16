@@ -3,7 +3,6 @@ using BlueTofuEngine.Core.Network.Message;
 using BlueTofuEngine.GameServer;
 using BlueTofuEngine.Module.GameContext.Core;
 using BlueTofuEngine.Module.GameContext.Messages;
-using BlueTofuEngine.Module.Stats.Messages;
 using System;
 using System.Collections.Generic;
 using System.Text;

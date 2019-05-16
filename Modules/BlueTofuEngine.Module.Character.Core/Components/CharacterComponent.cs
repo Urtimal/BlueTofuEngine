@@ -10,6 +10,7 @@ namespace BlueTofuEngine.Module.Character
     {
         public string ComponentName => "character";
 
+        public uint CharacterId { get; set; }
         public Breeds Breed { get; set; }
         public Gender Gender { get; set; }
     }

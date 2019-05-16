@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Core", "BlueTofuEngine.Core\BlueTofuEngine.Core.csproj", "{2054F52F-286C-4F8D-B9C2-E92B292F0642}"
 EndProject
@@ -89,17 +89,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Module.Accou
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Character", "Character", "{C402B3AD-301D-405F-8DA4-4AA6A86497CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueTofuEngine.Module.Character.Core", "Modules\BlueTofuEngine.Module.Character.Core\BlueTofuEngine.Module.Character.Core.csproj", "{EC6A9B32-45A9-43B8-BE2E-DB1E478B846C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Module.Character.Core", "Modules\BlueTofuEngine.Module.Character.Core\BlueTofuEngine.Module.Character.Core.csproj", "{EC6A9B32-45A9-43B8-BE2E-DB1E478B846C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Approach", "Approach", "{4BF9B059-E2FB-42AA-8DB6-A77671F86980}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueTofuEngine.Module.BaseApproach", "Modules\BlueTofuEngine.Module.BaseApproach\BlueTofuEngine.Module.BaseApproach.csproj", "{6FFA3A77-5F2F-49FB-A43B-9FCC9EFE3023}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Module.BaseApproach", "Modules\BlueTofuEngine.Module.BaseApproach\BlueTofuEngine.Module.BaseApproach.csproj", "{6FFA3A77-5F2F-49FB-A43B-9FCC9EFE3023}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueTofuEngine.Module.StandardApproach", "Modules\BlueTofuEngine.Module.StandardApproach\BlueTofuEngine.Module.StandardApproach.csproj", "{9B0DE793-E658-410E-8732-EC26BEC37F54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Module.StandardApproach", "Modules\BlueTofuEngine.Module.StandardApproach\BlueTofuEngine.Module.StandardApproach.csproj", "{9B0DE793-E658-410E-8732-EC26BEC37F54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueTofuEngine.Module.CommonBasic.Core", "Modules\BlueTofuEngine.Module.CommonBasic.Core\BlueTofuEngine.Module.CommonBasic.Core.csproj", "{4E3D6E61-A33D-460B-882C-8161D4DA4FC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Module.CommonBasic.Core", "Modules\BlueTofuEngine.Module.CommonBasic.Core\BlueTofuEngine.Module.CommonBasic.Core.csproj", "{4E3D6E61-A33D-460B-882C-8161D4DA4FC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueTofuEngine.Module.Character", "Modules\BlueTofuEngine.Module.Character\BlueTofuEngine.Module.Character.csproj", "{BF0BA9C6-2626-4CCF-8C07-1579B91E8424}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Module.Character", "Modules\BlueTofuEngine.Module.Character\BlueTofuEngine.Module.Character.csproj", "{BF0BA9C6-2626-4CCF-8C07-1579B91E8424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueTofuEngine.DatabaseCreator", "Utils\BlueTofuEngine.DatabaseCreator\BlueTofuEngine.DatabaseCreator.csproj", "{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -235,6 +237,10 @@ Global
 		{BF0BA9C6-2626-4CCF-8C07-1579B91E8424}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF0BA9C6-2626-4CCF-8C07-1579B91E8424}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF0BA9C6-2626-4CCF-8C07-1579B91E8424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -282,6 +288,7 @@ Global
 		{9B0DE793-E658-410E-8732-EC26BEC37F54} = {4BF9B059-E2FB-42AA-8DB6-A77671F86980}
 		{4E3D6E61-A33D-460B-882C-8161D4DA4FC0} = {CEC31027-53D0-4AD5-81ED-59DAF2044989}
 		{BF0BA9C6-2626-4CCF-8C07-1579B91E8424} = {C402B3AD-301D-405F-8DA4-4AA6A86497CA}
+		{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E} = {F9DBD0C2-8573-4669-A11E-A38BE8FF7FB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {497D3D38-783A-4CCB-AE76-D1C5CC0A6160}

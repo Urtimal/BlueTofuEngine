@@ -18,6 +18,8 @@ namespace BlueTofuEngine.Module.Stats
         {
             get
             {
+                if (!_stats.ContainsKey(type))
+                    Add(type);
                 return _stats[type];
             }
         }
@@ -38,8 +40,8 @@ namespace BlueTofuEngine.Module.Stats
 
             Add(StatType.Life, 60);
             Add(StatType.MaxLifePoint, 60);
-            Add(StatType.EnergyPoint, 1000);
-            Add(StatType.MaxEnergyPoints, 1000);
+            Add(StatType.EnergyPoint, 10000);
+            Add(StatType.MaxEnergyPoints, 10000);
             Add(StatType.ActionPoint, 6);
             Add(StatType.MovementPoint, 3);
             Add(StatType.Initiative, 100);
@@ -121,6 +123,27 @@ namespace BlueTofuEngine.Module.Stats
             if (_stats.ContainsKey(type))
                 return _stats[type].Total;
             return 0;
+        }
+
+        public static StatCollection FromUserData(CharacterStatsUserData userData)
+        {
+            var stats = new StatCollection();
+
+            stats[StatType.ExperiencePoints].Set(StatPartType.Base, (int)userData.Experience);
+            stats[StatType.Kama].Set(StatPartType.Base, (int)userData.Kama);
+            stats[StatType.StatsPoint].Set(StatPartType.Base, (int)userData.StatPoint);
+            stats[StatType.SpellPoint].Set(StatPartType.Base, (int)userData.SpellPoint);
+            stats[StatType.Prospecting].Set(StatPartType.Base, (int)userData.Prospecting);
+            stats[StatType.ActionPoint].Set(StatPartType.Base, (int)userData.ActionPoint);
+            stats[StatType.MovementPoint].Set(StatPartType.Base, (int)userData.MovementPoint);
+            stats[StatType.Strength].Set(StatPartType.Base, (int)userData.Strength);
+            stats[StatType.Vitality].Set(StatPartType.Base, (int)userData.Vitality);
+            stats[StatType.Wisdom].Set(StatPartType.Base, (int)userData.Wisdom);
+            stats[StatType.Chance].Set(StatPartType.Base, (int)userData.Chance);
+            stats[StatType.Agility].Set(StatPartType.Base, (int)userData.Agility);
+            stats[StatType.Intelligence].Set(StatPartType.Base, (int)userData.Intelligence);
+
+            return stats;
         }
     }
 }
