@@ -9,6 +9,7 @@
     <ProjectReference Include="..\..\BlueTofuEngine.Core\BlueTofuEngine.Core.csproj" />
     <ProjectReference Include="..\..\Modules\BlueTofuEngine.Module.Account\BlueTofuEngine.Module.Account.csproj" />
     <ProjectReference Include="..\..\Modules\BlueTofuEngine.Module.Character\BlueTofuEngine.Module.Character.csproj" />
+    <ProjectReference Include="..\..\Modules\BlueTofuEngine.Module.Chat\BlueTofuEngine.Module.Chat.csproj" />
     <ProjectReference Include="..\..\Modules\BlueTofuEngine.Module.GameContext\BlueTofuEngine.Module.GameContext.csproj" />
     <ProjectReference Include="..\..\Modules\BlueTofuEngine.Module.Stats\BlueTofuEngine.Module.Stats.csproj" />
   </ItemGroup>

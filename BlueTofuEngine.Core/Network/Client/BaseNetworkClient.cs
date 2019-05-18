@@ -33,7 +33,7 @@ namespace BlueTofuEngine.Core.Network.Client
         public void Send(byte[] message)
         {
             _client.Send(message);
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("[" + Nickname + "] >> " + message.Length + " bytes");
             Console.ResetColor();
         }
@@ -48,7 +48,7 @@ namespace BlueTofuEngine.Core.Network.Client
             //File.WriteAllBytes(path, data.GetBytes());
             //_counter++;
             _client.Send(data.GetBytes());
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("[" + Nickname + "] >> " + message.GetName() + " | " + message.GetSummary());
             Console.ResetColor();
         }
@@ -63,7 +63,7 @@ namespace BlueTofuEngine.Core.Network.Client
             int messageLength = 0;
             if (networkMessage == null)
             {
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.WriteLine("[" + Nickname + "] << UnknownMessage(" + messageId + ") | Size: " + message.Length + " bytes");
                 Console.ResetColor();
                 return;
@@ -86,7 +86,7 @@ namespace BlueTofuEngine.Core.Network.Client
                 }
                 networkMessage.Deserialize(reader);
             }
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("[" + Nickname + "] << " + networkMessage.GetName() + " | " + networkMessage.GetSummary());
             Console.ResetColor();
             NetworkMessageHandlerService.Instance.Handle(this, (NetworkMessage)networkMessage);

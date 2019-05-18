@@ -64,27 +64,33 @@ namespace BlueTofuEngine.Module.Character
             
             foreach (var accountCharacter in accountCharacters)
             {
-                var character = EntityFactory.Instance.CreateCharacter();
-                character.Character().CharacterId = accountCharacter.CharacterId;
-                character.Character().Breed = (Breeds)accountCharacter.BreedId;
-                character.Character().Gender = accountCharacter.Gender ? Gender.Female : Gender.Male;
-
-                var characterStats = UserDataService.Instance.Get<CharacterStatsUserData>(accountCharacter.CharacterId);
-                character.Stats().Stats = StatCollection.FromUserData(characterStats);
-                character.Stats().Stats[StatType.Level].Set(StatPartType.Base, accountCharacter.Level);
-
-                var breedData = GameDataManager<Breed>.Instance.Get(accountCharacter.BreedId);
-                var breedLook = EntityLookParser.Parse(accountCharacter.Gender ? breedData.FemaleLook : breedData.MaleLook);
-                var headData = GameDataManager<Head>.Instance.Get(accountCharacter.HeadId);
-                character.Look().Name = accountCharacter.Name;
-                character.Look().BonesId = breedLook.BonesId;
-                character.Look().AddSkin(breedLook.Skins.First());
-                character.Look().AddSkin(short.Parse(headData.Skin));
-                character.Look().IndexedColors.AddRange(accountCharacter.Colors.Split(',').Select(x => int.Parse(x)));
-                character.Look().Scales.AddRange(breedLook.Scales);
-
+                var character = LoadCharacter(accountCharacter);
                 entity.CharacterList().Characters.Add(character);
             }
+        }
+
+        private IEntity LoadCharacter(CharacterUserData accountCharacter)
+        {
+            var character = EntityFactory.Instance.CreateCharacter();
+            character.Character().CharacterId = accountCharacter.CharacterId;
+            character.Character().Breed = (Breeds)accountCharacter.BreedId;
+            character.Character().Gender = accountCharacter.Gender ? Gender.Female : Gender.Male;
+
+            var characterStats = UserDataService.Instance.Get<CharacterStatsUserData>(accountCharacter.CharacterId);
+            character.Stats().Stats = StatCollection.FromUserData(characterStats);
+            character.Stats().Stats[StatType.Level].Set(StatPartType.Base, accountCharacter.Level);
+
+            var breedData = GameDataManager<Breed>.Instance.Get(accountCharacter.BreedId);
+            var breedLook = EntityLookParser.Parse(accountCharacter.Gender ? breedData.FemaleLook : breedData.MaleLook);
+            var headData = GameDataManager<Head>.Instance.Get(accountCharacter.HeadId);
+            character.Look().Name = accountCharacter.Name;
+            character.Look().BonesId = breedLook.BonesId;
+            character.Look().AddSkin(breedLook.Skins.First());
+            character.Look().AddSkin(short.Parse(headData.Skin));
+            character.Look().IndexedColors.AddRange(accountCharacter.Colors.Split(',').Select(x => int.Parse(x)));
+            character.Look().Scales.AddRange(breedLook.Scales);
+
+            return character;
         }
 
         private void SendCharacterCreationResult(IEntity entity, CharacterCreationResult result)
@@ -132,8 +138,11 @@ namespace BlueTofuEngine.Module.Character
             var newCharacterStats = CharacterStatsUserData.FromData(new StatCollection());
             newCharacterStats.CharacterId = newCharacter.CharacterId;
             UserDataService.Instance.Add(newCharacterStats);
+            
+            entity.CharacterList().Characters.Add(LoadCharacter(newCharacter));
 
             SendCharacterCreationResult(entity, CharacterCreationResult.Ok);
+            SelectCharacter(entity, newCharacter.CharacterId);
         }
         
         private void SelectCharacter(IEntity entity, uint characterId)

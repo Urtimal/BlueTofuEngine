@@ -33,7 +33,7 @@ namespace BlueTofuEngine.Module.Chat.Messages
             var content = Content;
             if (content.Length > 70)
                 content = content.Substring(0, 70) + "...";
-            return "[" + Channel + "] " + SenderName + "(" + (int)SenderId + "): " + Content;
+            return "[" + (ChatChannelType)Channel + "] " + SenderName + "(" + (int)SenderId + "): " + Content;
         }
     }
 }

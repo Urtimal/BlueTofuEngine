@@ -16,6 +16,7 @@ namespace BlueTofuEngine.DatabaseCreator
             app.UseCharacters();
             app.UseStats();
             app.UseGameContext();
+            app.UseChat();
             Console.WriteLine("Building database...");
             UserDataService.Instance.Initialize();
 

@@ -6,7 +6,7 @@ namespace BlueTofuEngine.Module.Chat
 {
     public enum ChatChannelType
     {
-        Global,
+        General,
         Team,
         Guild,
         Alliance,
@@ -15,8 +15,11 @@ namespace BlueTofuEngine.Module.Chat
         Seek,
         Noob,
         Admin,
+        Private,
+        Infos,
+        Fight,
         Ads,
-        Arena,
+        Kolizeum,
         Community
     }
 }
