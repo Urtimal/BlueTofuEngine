@@ -82,7 +82,7 @@ namespace BlueTofuEngine.Module.GameContext
                 return;
 
             entity.Context.RemoveEntity(entity.Id);
-            entity.Context.Send(new GameContextRemoveElementMessage(entity.GameContext().ContextualId));
+            entity.Context.Send(new GameContextRemoveElementMessage(entity.ContextualId));
             entity.Context = null;
         }
 

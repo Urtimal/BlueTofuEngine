@@ -1,4 +1,5 @@
 ﻿using BlueTofuEngine.Core.AppBuilder;
+using BlueTofuEngine.Core.Command;
 using BlueTofuEngine.Core.Database;
 using BlueTofuEngine.Core.Network.Message;
 using BlueTofuEngine.Module.Base;
@@ -22,6 +23,7 @@ namespace BlueTofuEngine
             NetworkMessageRepository.Instance.SearchMessagesInAssembly(Assembly.GetExecutingAssembly());
             NetworkMessageHandlerService.Instance.SearchHandlersInAssembly(Assembly.GetExecutingAssembly());
             SystemManager.Instance.Add<GameContextSystem>();
+            CommandService.Instance.RegisterBoth("teleport", GameContextCommands.Command_Teleport);
             UserDataService.Instance.RegisterModelCreation(GameContextModelCreation);
             ActionQueueManager.Instance.AddActionToQueue(ActionQueues.CharacterLoading, OnCharacterLoading);
             ActionQueueManager.Instance.AddActionToQueue(ActionQueues.ClientDisconnected, OnClientDisconnected);
@@ -56,7 +58,7 @@ namespace BlueTofuEngine
             entity.Location().Direction = (Direction)location.Direction;
 
             entity.AddComponent<GameContextComponent>();
-            entity.GameContext().ContextualId = entity.Character().CharacterId;
+            entity.ContextualId = (int)entity.Character().CharacterId;
         }
 
         private static void OnClientDisconnected(IEntity entity)

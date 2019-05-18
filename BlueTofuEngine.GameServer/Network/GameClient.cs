@@ -30,7 +30,10 @@ namespace BlueTofuEngine.GameServer.Network
         protected override void OnDisconnect()
         {
             Console.WriteLine("Client disconnected (" + Nickname + ")");
-            ActionQueueManager.Instance.Execute(ActionQueues.ClientDisconnected, this.GetEntity(), e => EntityManager.Instance.Delete(e.Id));
+            ActionQueueManager.Instance.Execute(ActionQueues.ClientDisconnected, this.GetEntity(), e => {
+                EntityManager.Instance.Delete(e.Id);
+                Console.WriteLine("Player '" + Nickname + "' saved");
+            });
             base.OnDisconnect();
         }
     }

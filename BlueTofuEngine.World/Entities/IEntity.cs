@@ -13,6 +13,7 @@ namespace BlueTofuEngine.World.Entities
         uint Id { get; }
         Guid RefId { get; set; }
         IContext Context { get; set; }
+        int ContextualId { get; set; }
 
         void AddComponent<TComponent>() where TComponent : IComponent, new();
         void AddComponent(Type type);

@@ -86,7 +86,7 @@ namespace BlueTofuEngine.Module.Chat
             {
                 var message = new ChatServerMessage
                 {
-                    SenderId = entity.GameContext().ContextualId,
+                    SenderId = entity.ContextualId,
                     SenderName = entity.Look().Name,
                     SenderAccountId = (int)entity.Account().AccountId,
                     Channel = (int)channel,
@@ -116,7 +116,7 @@ namespace BlueTofuEngine.Module.Chat
             
             receiver.Send(new ChatServerMessage
             {
-                SenderId = entity.GameContext().ContextualId,
+                SenderId = entity.ContextualId,
                 SenderName = entity.Look().Name,
                 SenderAccountId = (int)entity.Account().AccountId,
                 Channel = (int)ChatChannelType.Private,
@@ -126,7 +126,7 @@ namespace BlueTofuEngine.Module.Chat
             });
             entity.Send(new ChatServerCopyMessage
             {
-                ReceiverId = receiver.GameContext().ContextualId,
+                ReceiverId = receiver.ContextualId,
                 ReceiverName = receiver.Look().Name,
                 Channel = (int)ChatChannelType.Private,
                 Content = content,
@@ -143,7 +143,7 @@ namespace BlueTofuEngine.Module.Chat
         {
             var message = new ChatSmileyMessage
             {
-                EntityId = entity.GameContext().ContextualId,
+                EntityId = entity.ContextualId,
                 AccountId = (int)(entity.Account()?.AccountId ?? 0),
                 SmileyId = smiley
             };
