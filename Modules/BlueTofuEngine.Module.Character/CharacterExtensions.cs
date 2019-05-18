@@ -18,6 +18,7 @@ namespace BlueTofuEngine
             NetworkMessageRepository.Instance.SearchMessagesInAssembly(Assembly.GetExecutingAssembly());
             NetworkMessageHandlerService.Instance.SearchHandlersInAssembly(Assembly.GetExecutingAssembly());
             SystemManager.Instance.Add<CharacterListSystem>();
+            SystemManager.Instance.Add<CharacterSystem>();
             UserDataService.Instance.RegisterModelCreation(CharactersModelCreation);
         }
 

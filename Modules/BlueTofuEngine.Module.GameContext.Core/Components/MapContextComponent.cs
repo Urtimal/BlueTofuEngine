@@ -12,6 +12,5 @@ namespace BlueTofuEngine.Module.GameContext
         public Guid InstanceId { get; set; }
 
         public long Id { get; set; }
-        public MapPosition Position { get; set; }
     }
 }

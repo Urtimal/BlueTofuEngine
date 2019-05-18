@@ -3,6 +3,7 @@ using BlueTofuEngine.Core.Network.Client;
 using BlueTofuEngine.Core.Utils;
 using BlueTofuEngine.Module.Base;
 using BlueTofuEngine.World;
+using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Events;
 using ErpoowEngine.Network;
 using System;
@@ -29,6 +30,7 @@ namespace BlueTofuEngine.GameServer.Network
         protected override void OnDisconnect()
         {
             Console.WriteLine("Client disconnected (" + Nickname + ")");
+            ActionQueueManager.Instance.Execute(ActionQueues.ClientDisconnected, this.GetEntity(), e => EntityManager.Instance.Delete(e.Id));
             base.OnDisconnect();
         }
     }

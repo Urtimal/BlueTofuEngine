@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BlueTofuEngine.Module.Character
 {
-    public static class CharacterHandlers
+    public static class CharacterListHandlers
     {
         [NetworkMessageHandler(CharactersListRequestMessage.Id)]
         public static void OnCharacterListRequest(INetworkClient client, CharactersListRequestMessage clrm)
@@ -26,6 +26,18 @@ namespace BlueTofuEngine.Module.Character
                 Colors = ccrm.Colors
             };
             client.GetEntity().Notify(ccrea);
+        }
+
+        [NetworkMessageHandler(CharacterSelectionMessage.Id)]
+        public static void OnCharacterSelection(INetworkClient client, CharacterSelectionMessage csm)
+        {
+            client.GetEntity().Notify(new CharacterSelectionEventArgs(csm.CharacterId));
+        }
+
+        [NetworkMessageHandler(CharacterFirstSelectionMessage.Id)]
+        public static void OnCharacterFirstSelection(INetworkClient client, CharacterFirstSelectionMessage cfsm)
+        {
+            client.GetEntity().Notify(new CharacterSelectionEventArgs(cfsm.CharacterId));
         }
     }
 }

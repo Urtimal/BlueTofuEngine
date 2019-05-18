@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.Module.GameContext
+namespace BlueTofuEngine.Module.Base
 {
     public enum Direction
     {

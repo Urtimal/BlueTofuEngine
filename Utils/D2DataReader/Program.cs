@@ -1,4 +1,5 @@
 ﻿using D2DataLib.D2I;
+using D2DataLib.DLM;
 using Newtonsoft.Json;
 using ShellProgressBar;
 using System;
@@ -12,11 +13,13 @@ namespace D2DataReader
     {
         static void Main(string[] args)
         {
-            var lang = new LangDictionary("fr");
-            lang.Import("input\\lang\\i18n_fr.d2i");
+            //var lang = new LangDictionary("fr");
+            //lang.Import("input\\lang\\i18n_fr.d2i");
 
-            Console.WriteLine(lang.Get(114, false));
-            Console.WriteLine(lang.Get(114, true));
+            //Console.WriteLine(lang.Get(114, false));
+            //Console.WriteLine(lang.Get(114, true));
+
+            ExportMap("input/dlm/191105026.dlm", ".");
 
             Console.WriteLine("Done");
             Console.ReadLine();
@@ -87,7 +90,7 @@ namespace D2DataReader
         //    {
         //        bar.Tick();
         //    });
-            
+
         //    doc.ExportJson(dataPath, progress);
 
         //    if (bar is ProgressBar pbar)
@@ -185,16 +188,16 @@ namespace D2DataReader
 
         //#endregion
 
-        //#region DLM
+        #region DLM
 
-        //public static void ExportMap(string filepath, string destFolder)
-        //{
-        //    var map = DlmReader.Read(filepath, destFolder);
-        //    var jsonFile = Path.Combine(destFolder, map.Id + ".json");
-        //    File.WriteAllText(jsonFile, map.ToJson());
-        //}
+        public static void ExportMap(string filepath, string destFolder)
+        {
+            var map = DlmReader.Read(filepath, destFolder);
+            var jsonFile = Path.Combine(destFolder, map.Id + ".json");
+            File.WriteAllText(jsonFile, map.ToJson());
+        }
 
-        //#endregion
+        #endregion
 
         //#region ELE
 

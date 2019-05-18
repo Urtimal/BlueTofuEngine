@@ -57,6 +57,14 @@ namespace BlueTofuEngine.Core.Network.Message
                         handler.Invoke(null, args);
                     }
                 }
+                catch (TargetInvocationException tie)
+                {
+                    var e = tie.InnerException;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("[" + client.Nickname + "] " + e.GetType().FullName + ": " + e.Message);
+                    Console.WriteLine(e.StackTrace);
+                    Console.ResetColor();
+                }
                 catch (Exception e)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;

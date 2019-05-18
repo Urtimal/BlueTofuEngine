@@ -24,7 +24,7 @@ namespace BlueTofuEngine.World.Context
         bool HasComponent<TComponent>() where TComponent : IContextComponent;
         void RemoveComponent(Guid id);
         void RemoveComponents<TComponent>() where TComponent : IContextComponent;
-        void Send(INetworkMessage message);
+        void Send(INetworkMessage message, params IEntity[] except);
         void Tick(float deltaTime);
     }
 }

@@ -24,13 +24,13 @@ namespace BlueTofuEngine.World.Context
             _components = new List<IContextComponent>();
         }
 
-        public void Send(INetworkMessage message)
+        public void Send(INetworkMessage message, params IEntity[] except)
         {
-            foreach (var entity in Entities)
+            foreach (var entity in Entities.Except(except))
                 entity.Send(message);
         }
 
-        public void Tick(float deltaTime)
+        public virtual void Tick(float deltaTime)
         {
         }
 
@@ -39,7 +39,10 @@ namespace BlueTofuEngine.World.Context
         public void AddEntity(IEntity entity)
         {
             if (!_entities.Any(x => x.Id == entity.Id))
+            {
                 _entities.Add(entity);
+                entity.Context = this;
+            }
         }
 
         public void RemoveEntity(uint id)

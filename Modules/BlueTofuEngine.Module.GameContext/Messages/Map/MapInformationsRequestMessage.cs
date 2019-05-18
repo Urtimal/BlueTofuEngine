@@ -11,7 +11,7 @@ namespace BlueTofuEngine.Module.GameContext.Messages
     {
         public const ushort Id = 225;
 
-        public int MapId { get; set; }
+        public long MapId { get; set; }
 
         public MapInformationsRequestMessage() : base(Id)
         {
@@ -19,7 +19,7 @@ namespace BlueTofuEngine.Module.GameContext.Messages
 
         public override void Deserialize(ICustomDataReader reader)
         {
-            MapId = (int)reader.ReadDouble();
+            MapId = (long)reader.ReadDouble();
         }
 
         public override string GetSummary()

@@ -15,8 +15,6 @@ namespace BlueTofuEngine.Module.Character
         public static IEntity CreateCharacter(this EntityFactory factory)
         {
             var entity = EntityBuilder.Create()
-                                      .AddComponent<NetworkComponent>()
-                                      .AddComponent<AccountComponent>()
                                       .AddComponent<CharacterComponent>()
                                       .AddComponent<StatComponent>()
                                       .AddComponent<LookComponent>()

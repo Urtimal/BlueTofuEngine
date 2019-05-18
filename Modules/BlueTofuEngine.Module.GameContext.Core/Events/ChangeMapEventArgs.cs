@@ -1,17 +1,18 @@
-﻿using BlueTofuEngine.World.Events;
+﻿using BlueTofuEngine.Module.Base;
+using BlueTofuEngine.World.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.Module.GameContext.Core.Events
+namespace BlueTofuEngine.Module.GameContext
 {
     public class ChangeMapEventArgs : SystemEventArgs
     {
-        public uint MapId { get; set; }
+        public long MapId { get; set; }
         public ushort CellId { get; set; }
         public Direction Dir { get; set; }
 
-        public ChangeMapEventArgs(uint mapId, ushort cellId, Direction dir)
+        public ChangeMapEventArgs(long mapId, ushort cellId, Direction dir)
         {
             MapId = mapId;
             CellId = cellId;

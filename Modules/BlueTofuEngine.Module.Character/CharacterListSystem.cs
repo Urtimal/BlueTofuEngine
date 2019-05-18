@@ -1,8 +1,10 @@
 ﻿using BlueTofuEngine.Core.Database;
 using BlueTofuEngine.Core.GameData;
+using BlueTofuEngine.Module.Account;
 using BlueTofuEngine.Module.Base.Utils;
 using BlueTofuEngine.Module.Stats;
 using BlueTofuEngine.World;
+using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Events;
 using BlueTofuEngine.World.GameData;
@@ -27,6 +29,10 @@ namespace BlueTofuEngine.Module.Character
                 case CreateCharacterRequestEventArgs ccrea:
                     CreateCharacter(entity, ccrea);
                     break;
+
+                case CharacterSelectionEventArgs csea:
+                    SelectCharacter(entity, csea.CharacterId);
+                    break;
             }
         }
 
@@ -38,8 +44,24 @@ namespace BlueTofuEngine.Module.Character
 
         private void SendCharacterList(IEntity entity)
         {
-            var accountCharacters = UserDataService.Instance.GetAll<CharacterUserData>(x => x.AccountId == entity.Account().AccountId);
+            if (!entity.HasComponent<CharacterListComponent>())
+                LoadCharacterList(entity);
+
             var listMessage = new CharactersListMessage();
+            foreach (var character in entity.CharacterList().Characters)
+            {
+                var infos = new CharacterBaseInformations();
+                infos.Initialize(character);
+                listMessage.Characters.Add(infos);
+            }
+            entity.Send(listMessage);
+        }
+
+        private void LoadCharacterList(IEntity entity)
+        {
+            entity.AddComponent<CharacterListComponent>();
+            var accountCharacters = UserDataService.Instance.GetAll<CharacterUserData>(x => x.AccountId == entity.Account().AccountId);
+            
             foreach (var accountCharacter in accountCharacters)
             {
                 var character = EntityFactory.Instance.CreateCharacter();
@@ -61,11 +83,8 @@ namespace BlueTofuEngine.Module.Character
                 character.Look().IndexedColors.AddRange(accountCharacter.Colors.Split(',').Select(x => int.Parse(x)));
                 character.Look().Scales.AddRange(breedLook.Scales);
 
-                var infos = new CharacterBaseInformations();
-                infos.Initialize(character);
-                listMessage.Characters.Add(infos);
+                entity.CharacterList().Characters.Add(character);
             }
-            entity.Send(listMessage);
         }
 
         private void SendCharacterCreationResult(IEntity entity, CharacterCreationResult result)
@@ -117,6 +136,35 @@ namespace BlueTofuEngine.Module.Character
             SendCharacterCreationResult(entity, CharacterCreationResult.Ok);
         }
         
+        private void SelectCharacter(IEntity entity, uint characterId)
+        {
+            var character = entity.CharacterList().Characters.FirstOrDefault(x => x.Character().CharacterId == characterId);
+            if (character == null)
+                entity.Send(new CharacterSelectedErrorMessage());
+            else
+            {
+                foreach (var noNeedCharacter in entity.CharacterList().Characters.Where(x => x.Character().CharacterId != characterId))
+                    EntityManager.Instance.Delete(noNeedCharacter.Id);
+                character.AddComponent<AccountComponent>();
+                character.Account().AccountId = entity.Account().AccountId;
+                character.AddComponent<NetworkComponent>();
+                character.Network().Client = entity.Network().Client;
+                character.RefId = character.Network().Client.Id;
+                EntityManager.Instance.Delete(entity.Id);
+
+                var successMessage = new CharacterSelectedSuccessMessage();
+                successMessage.Infos.Initialize(character);
+                character.Send(successMessage);
+                ActionQueueManager.Instance.Execute(ActionQueues.CharacterLoading, character, c =>
+                {
+                    c.Send(new CharacterLoadingCompleteMessage());
+                    c.Notify(new CharacterLoadedEventArgs());
+                });
+            }
+        }
+
+
+
         #endregion
     }
 }

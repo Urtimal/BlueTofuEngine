@@ -6,15 +6,14 @@ using System.Text;
 
 namespace BlueTofuEngine.Module.GameContext
 {
-    public class EntityRemovedOnMapEventArgs : SystemEventArgs
+    public class SpawnEntityOnMapEventArgs : SystemEventArgs
     {
         public IEntity Entity { get; set; }
 
-        public EntityRemovedOnMapEventArgs(IEntity entity)
+        public SpawnEntityOnMapEventArgs(IEntity entity)
         {
             Entity = entity;
         }
-
         public override bool CheckIsValid()
         {
             return Entity != null;

@@ -6,18 +6,20 @@ using System.Text;
 
 namespace BlueTofuEngine.Module.GameContext
 {
-    public class EntitySpawnedOnMapEventArgs : SystemEventArgs
+    public class MoveEntityOnMapEventArgs : SystemEventArgs
     {
         public IEntity Entity { get; set; }
+        public IEnumerable<uint> KeyMovements { get; set; }
 
-        public EntitySpawnedOnMapEventArgs(IEntity entity)
+        public MoveEntityOnMapEventArgs(IEntity entity, IEnumerable<uint> keyMovements)
         {
             Entity = entity;
+            KeyMovements = keyMovements;
         }
 
         public override bool CheckIsValid()
         {
-            return Entity != null;
+            return Entity != null && KeyMovements != null;
         }
     }
 }

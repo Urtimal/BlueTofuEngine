@@ -12,5 +12,10 @@ namespace BlueTofuEngine
         {
             return entity.GetComponent<LookComponent>();
         }
+
+        public static LocationComponent Location(this IEntity entity)
+        {
+            return entity.GetComponent<LocationComponent>();
+        }
     }
 }

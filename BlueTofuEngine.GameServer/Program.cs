@@ -17,9 +17,6 @@ namespace BlueTofuEngine.GameServer
                         .Build();
 
             app.Run();
-
-            Console.WriteLine("End");
-            Console.ReadLine();
         }
     }
 }

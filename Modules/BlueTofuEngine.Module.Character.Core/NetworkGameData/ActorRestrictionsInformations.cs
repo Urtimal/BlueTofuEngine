@@ -5,7 +5,7 @@ using BlueTofuEngine.Core;
 using BlueTofuEngine.Core.Serialization;
 using BlueTofuEngine.World;
 
-namespace BlueTofuEngine.Module.GameContext
+namespace BlueTofuEngine.Module.Character
 {
     public class ActorRestrictionsInformations : NetworkType
     {
