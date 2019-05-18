@@ -26,8 +26,8 @@ namespace BlueTofuEngine.Module.GameContext
 
         public override void Initialize(IEntity entity)
         {
-            CellId = entity.Map().CellId;
-            Direction = (int)entity.Map().Direction;
+            CellId = entity.Location().CellId;
+            Direction = (int)entity.Location().Direction;
         }
     }
 }

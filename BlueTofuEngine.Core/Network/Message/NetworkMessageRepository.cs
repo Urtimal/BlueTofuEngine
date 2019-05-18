@@ -22,7 +22,10 @@ namespace BlueTofuEngine.Core.Network.Message
             foreach (var type in networkMessageTypes)
             {
                 var attr = type.GetCustomAttribute<NetworkMessageAttribute>();
-                _messages.Add(attr.MessageId, type);
+                if (_messages.ContainsKey(attr.MessageId))
+                    _messages[attr.MessageId] = type;
+                else
+                    _messages.Add(attr.MessageId, type);
             }
         }
 

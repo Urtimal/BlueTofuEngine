@@ -11,9 +11,19 @@ namespace BlueTofuEngine.Core.Utils
             return (int)(date.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
         }
 
+        public static double GetFromDateLong(DateTime date)
+        {
+            return (date.Subtract(new DateTime(1970, 1, 1))).TotalMilliseconds;
+        }
+
         public static int GetFromNow()
         {
             return GetFromDate(DateTime.UtcNow);
+        }
+
+        public static double GetFromNowLong()
+        {
+            return GetFromDateLong(DateTime.UtcNow);
         }
     }
 }

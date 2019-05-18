@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlueTofuEngine.Module.GameContext.Messages
+namespace BlueTofuEngine.Module.GameContext
 {
     [NetworkMessage(Id)]
     public class GameContextCreateMessage : NetworkMessage

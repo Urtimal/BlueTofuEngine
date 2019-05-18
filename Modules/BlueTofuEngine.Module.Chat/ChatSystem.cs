@@ -1,6 +1,5 @@
 ﻿using BlueTofuEngine.Core.GameData;
 using BlueTofuEngine.Module.Chat.Messages;
-using BlueTofuEngine.Module.Stats.Messages;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;

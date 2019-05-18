@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using BlueTofuEngine.Core.Serialization;
 using BlueTofuEngine.Module.Base;
+using BlueTofuEngine.Module.Character;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
 
@@ -11,7 +12,7 @@ namespace BlueTofuEngine.CharacterSelectionBypass
     public class CharacterMinimalPlusLookInformations : CharacterMinimalInformations
     {
         public EntityLook Look { get; set; }
-        public int Breed { get; set; }
+        public Breeds Breed { get; set; }
 
         public CharacterMinimalPlusLookInformations() : base()
         {
@@ -32,7 +33,7 @@ namespace BlueTofuEngine.CharacterSelectionBypass
 
             Look = new EntityLook();
             Look.Initialize(entity);
-            Breed = entity.Character()?.BreedId ?? 1;
+            Breed = entity.Character()?.Breed ?? Breeds.Undefined;
         }
     }
 }

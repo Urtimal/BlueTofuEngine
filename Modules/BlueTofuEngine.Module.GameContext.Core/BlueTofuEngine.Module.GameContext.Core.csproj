@@ -8,6 +8,7 @@
     <ProjectReference Include="..\..\BlueTofuEngine.World\BlueTofuEngine.World.csproj" />
     <ProjectReference Include="..\BlueTofuEngine.Module.Account.Core\BlueTofuEngine.Module.Account.Core.csproj" />
     <ProjectReference Include="..\BlueTofuEngine.Module.Base\BlueTofuEngine.Module.Base.csproj" />
+    <ProjectReference Include="..\BlueTofuEngine.Module.Character.Core\BlueTofuEngine.Module.Character.Core.csproj" />
   </ItemGroup>
 
 </Project>

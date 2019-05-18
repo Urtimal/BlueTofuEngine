@@ -123,8 +123,9 @@ namespace BlueTofuEngine.Core.Serialization
         {
             if (string.IsNullOrEmpty(value))
                 value = string.Empty;
-            WriteUShort((ushort)value.Length);
-            WriteUTFBytes(value);
+            var bytes = Encoding.UTF8.GetBytes(value);
+            WriteUShort((ushort)bytes.Length);
+            WriteBytes(bytes);
         }
 
         public void WriteUTFBytes(string value)

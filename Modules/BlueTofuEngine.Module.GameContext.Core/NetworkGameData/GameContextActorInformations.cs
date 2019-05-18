@@ -30,7 +30,7 @@ namespace BlueTofuEngine.Module.GameContext
 
         public override void Initialize(IEntity entity)
         {
-            ContextualId = entity.Id;
+            ContextualId = entity.GameContext().ContextualId;
             Look = new EntityLook();
             Look.Initialize(entity);
             Disposition = new EntityDispositionInformations();

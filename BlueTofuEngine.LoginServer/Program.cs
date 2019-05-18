@@ -3,6 +3,7 @@ using BlueTofuEngine.Core.Network.Message;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using BlueTofuEngine.BypassLogin;
+using BlueTofuEngine.Core.Database;
 
 namespace BlueTofuEngine.LoginServer
 {
@@ -30,8 +31,15 @@ namespace BlueTofuEngine.LoginServer
 
         public override void Configure(IAppBuilder app)
         {
+            app.UseAccounts();
+
             //app.UseBypassLogin();
-            app.UseLogin();
+            app.UseRdmLogin();
+
+            app.AddStartup((Action)(() =>
+            {
+                UserDataService.Instance.Initialize();
+            }));
         }
     }
 }

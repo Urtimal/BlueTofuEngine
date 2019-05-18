@@ -4,6 +4,7 @@ using BlueTofuEngine.Core.Network.Client;
 using BlueTofuEngine.Core.Network.Message;
 using BlueTofuEngine.GameServer;
 using BlueTofuEngine.Module.Account;
+using BlueTofuEngine.Module.Base;
 using BlueTofuEngine.Module.GameContext;
 using BlueTofuEngine.World.Components;
 using BlueTofuEngine.World.Entities;
@@ -37,7 +38,7 @@ namespace BlueTofuEngine.CharacterSelectionBypass
             var characterEntity = EntityManager.Instance.Get((uint)csm.CharacterId);
             characterEntity.AddComponent<AccountComponent>();
             characterEntity.AddComponent<NetworkComponent>();
-            characterEntity.AddComponent<MapComponent>();
+            characterEntity.AddComponent<LocationComponent>();
             characterEntity.AddComponent<GameContextComponent>();
             characterEntity.Account().AccountId = loginEntity.Account().AccountId;
             characterEntity.Network().Client = loginEntity.Network().Client;

@@ -16,6 +16,13 @@ namespace BlueTofuEngine.Module.Base
         public List<int> IndexedColors { get; set; }
         public List<short> Scales { get; set; }
 
+        public LookComponent()
+        {
+            Skins = new List<short>();
+            IndexedColors = new List<int>();
+            Scales = new List<short>();
+        }
+
         public void AddSkin(short skinId) => safeAdd(Skins, skinId);
         public void RemoveSkin(short skinId) => safeRemove(Skins, skinId);
 

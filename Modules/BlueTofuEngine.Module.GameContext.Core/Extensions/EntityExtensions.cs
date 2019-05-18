@@ -1,4 +1,5 @@
-﻿using BlueTofuEngine.Module.GameContext;
+﻿using BlueTofuEngine.Module.Base;
+using BlueTofuEngine.Module.GameContext;
 using BlueTofuEngine.World.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,9 @@ namespace BlueTofuEngine
 {
     public static class EntityExtensions
     {
-        public static MapComponent Map(this IEntity entity)
+        public static GameContextComponent GameContext(this IEntity entity)
         {
-            return entity.GetComponent<MapComponent>();
+            return entity.GetComponent<GameContextComponent>();
         }
     }
 }

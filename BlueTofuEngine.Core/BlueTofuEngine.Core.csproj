@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Network\Type\**" />
+    <EmbeddedResource Remove="Network\Type\**" />
+    <None Remove="Network\Type\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Ether.Network" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
@@ -18,10 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ErpoowEngine\ErpoowEngine.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Network\Type\" />
   </ItemGroup>
 
 </Project>

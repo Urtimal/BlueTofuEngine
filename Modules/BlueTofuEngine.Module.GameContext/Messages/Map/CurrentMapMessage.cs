@@ -11,9 +11,9 @@ namespace BlueTofuEngine.Module.GameContext.Messages
     {
         public const ushort Id = 220;
 
-        public int MapId { get; set; }
+        public long MapId { get; set; }
 
-        public CurrentMapMessage(int mapId) : base(Id)
+        public CurrentMapMessage(long mapId) : base(Id)
         {
             MapId = mapId;
         }

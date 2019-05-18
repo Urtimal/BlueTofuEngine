@@ -18,6 +18,7 @@ namespace BlueTofuEngine.World.Entities
         void AddComponent(Type type);
         TComponent GetComponent<TComponent>() where TComponent : IComponent;
         bool HasComponent<TComponent>() where TComponent : IComponent;
+        void RemoveComponent<TComponent>() where TComponent : IComponent;
         void Notify(SystemEventArgs arg);
         void Notify<TSystem>(SystemEventArgs arg) where TSystem : ISystem;
     }

@@ -1,4 +1,5 @@
 ﻿using BlueTofuEngine.Module.Base;
+using BlueTofuEngine.Module.Character;
 using BlueTofuEngine.Module.Stats;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Entities;

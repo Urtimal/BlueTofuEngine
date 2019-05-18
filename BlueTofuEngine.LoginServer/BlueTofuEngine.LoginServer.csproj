@@ -9,7 +9,14 @@
     <ProjectReference Include="..\BlueTofuEngine.Core\BlueTofuEngine.Core.csproj" />
     <ProjectReference Include="..\BlueTofuEngine.World\BlueTofuEngine.World.csproj" />
     <ProjectReference Include="..\Modules\BlueTofuEngine.BypassLogin\BlueTofuEngine.BypassLogin.csproj" />
-    <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Login\BlueTofuEngine.Module.Login.csproj" />
+    <ProjectReference Include="..\Modules\BlueTofuEngine.Module.Account\BlueTofuEngine.Module.Account.csproj" />
+    <ProjectReference Include="..\Modules\BlueTofuEngine.Module.RdmLogin\BlueTofuEngine.Module.RdmLogin.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="RawDataMessage.swf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -8,5 +8,6 @@ namespace BlueTofuEngine.Module.GameContext
         public string ComponentName => "context";
 
         public GameContextType Type { get; set; }
+        public uint ContextualId { get; set; }
     }
 }

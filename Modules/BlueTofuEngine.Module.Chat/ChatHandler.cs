@@ -2,7 +2,6 @@
 using BlueTofuEngine.Core.Network.Message;
 using BlueTofuEngine.GameServer;
 using BlueTofuEngine.Module.Chat.Messages;
-using BlueTofuEngine.Module.Stats.Messages;
 using BlueTofuEngine.World.Components;
 using System;
 using System.Collections.Generic;

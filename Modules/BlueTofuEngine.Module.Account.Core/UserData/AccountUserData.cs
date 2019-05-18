@@ -13,6 +13,8 @@ namespace BlueTofuEngine.Module.Account
         public string Nickname { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime LastConnectionDate { get; set; }
+        public string SecretQuestion { get; set; }
+        public string Token { get; set; }
         public bool IsAdmin { get; set; }
     }
 }

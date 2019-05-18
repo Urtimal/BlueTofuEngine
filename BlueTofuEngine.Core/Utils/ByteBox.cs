@@ -21,7 +21,8 @@ namespace BlueTofuEngine.Core
             }
             set
             {
-                Value |= (byte)(1 << pos);
+                if (value)
+                    Value |= (byte)(1 << pos);
             }
         }
     }

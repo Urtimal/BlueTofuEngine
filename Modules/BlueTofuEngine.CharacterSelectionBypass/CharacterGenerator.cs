@@ -2,6 +2,7 @@
 using BlueTofuEngine.Core.Serialization;
 using BlueTofuEngine.Module.Base;
 using BlueTofuEngine.Module.Base.Utils;
+using BlueTofuEngine.Module.Character;
 using BlueTofuEngine.Module.GameContext;
 using BlueTofuEngine.Module.Stats;
 using BlueTofuEngine.World;
@@ -46,8 +47,8 @@ namespace BlueTofuEngine.CharacterSelectionBypass
             entityLook.AddSkin(short.Parse(head.Skin));
             entityLook.IndexedColors.AddRange(gender == 0 ? breed.MaleColors : breed.FemaleColors);
             entityLook.Scales.AddRange(look.Scales);
-            entityCharacter.BreedId = breed.Id;
-            entityCharacter.Gender = gender == 1;
+            entityCharacter.Breed = (Breeds)breed.Id;
+            entityCharacter.Gender = (Gender)gender;
             entityStats.Stats = new StatCollection();
 
             return entity;

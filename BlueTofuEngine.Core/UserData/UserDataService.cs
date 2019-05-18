@@ -24,7 +24,7 @@ namespace BlueTofuEngine.Core.Database
         public void Initialize()
         {
             var builder = new DbContextOptionsBuilder<EngineDbContext>();
-            builder.UseNpgsql("Host=127.0.0.1;Database=bluetofuengine;Username=bte;Password=bte");
+            builder.UseNpgsql("Host=127.0.0.1;Database=bte;Username=bte;Password=bte");
             _context = new EngineDbContext(builder.Options, _modelCreationActions);
             _context.Database.EnsureCreated();
         }
@@ -39,16 +39,16 @@ namespace BlueTofuEngine.Core.Database
             _context.SaveChanges();
         }
         
-        public TUserData Get<TUserData>(Guid id) where TUserData : UserData
+        public TUserData Get<TUserData>(object pKey) where TUserData : UserData
         {
-            return _context.Set<TUserData>().Find(id);
+            return _context.Set<TUserData>().Find(pKey);
         }
 
         public TUserData Get<TUserData>(Func<TUserData, bool> predicate) where TUserData : UserData
         {
             return _context.Set<TUserData>().FirstOrDefault(predicate);
         }
-
+        
         public IEnumerable<TUserData> GetAll<TUserData>() where TUserData : UserData
         {
             return _context.Set<TUserData>().ToList();
@@ -76,6 +76,12 @@ namespace BlueTofuEngine.Core.Database
                 _context.Set<TUserData>().Remove(data);
                 _context.SaveChanges();
             }
+        }
+
+        public void Reload<TUserData>() where TUserData : UserData
+        {
+            foreach (var entity in GetAll<TUserData>())
+                _context.Entry(entity).Reload();                    
         }
     }
 }

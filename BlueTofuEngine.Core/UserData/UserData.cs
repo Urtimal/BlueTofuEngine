@@ -7,5 +7,10 @@ namespace BlueTofuEngine.Core.Database
     public abstract class UserData
     {
         public Guid Id { get; set; }
+
+        public UserData()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

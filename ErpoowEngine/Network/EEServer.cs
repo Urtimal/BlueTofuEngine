@@ -49,7 +49,11 @@ namespace ErpoowEngine.Network
         {
             isWorking = false;
             _listener.Stop();
-            Task.WaitAll(listeningTask);
+            try
+            {
+                Task.WaitAll(listeningTask);
+            }
+            catch { }
         }
 
         /// <summary>

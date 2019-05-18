@@ -57,12 +57,10 @@ namespace BlueTofuEngine.Core.Network.Message
 
         public virtual void Deserialize(ICustomDataReader reader)
         {
-            throw new NotImplementedException();
         }
 
         protected virtual void serializeContent(ICustomDataWriter writer)
         {
-            throw new NotImplementedException();
         }
     }
 }

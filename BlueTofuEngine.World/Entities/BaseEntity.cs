@@ -45,6 +45,11 @@ namespace BlueTofuEngine.World.Entities
             return _components.Any(x => x is TComponent);
         }
 
+        public void RemoveComponent<TComponent>() where TComponent : IComponent
+        {
+            _components.RemoveAll(x => x is TComponent);
+        }
+
         public void Notify(SystemEventArgs arg)
         {
             SystemManager.Instance.NotifySystems(this, arg);
