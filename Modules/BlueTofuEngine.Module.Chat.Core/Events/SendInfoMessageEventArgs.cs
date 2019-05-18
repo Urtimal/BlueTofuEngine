@@ -19,9 +19,10 @@ namespace BlueTofuEngine.Module.Chat
             Args = new List<string>();
         }
 
-        public SendInfoMessageEventArgs(int id)
+        public SendInfoMessageEventArgs(int id, params string[] args)
         {
             Args = new List<string>();
+            Args.AddRange(args);
 
             var infoMessage = GameDataManager<InfoMessage>.Instance.Get(id);
             if (infoMessage != null)
@@ -31,9 +32,10 @@ namespace BlueTofuEngine.Module.Chat
             }
         }
 
-        public SendInfoMessageEventArgs(InfoMessages message)
+        public SendInfoMessageEventArgs(InfoMessages message, params string[] args)
         {
             Args = new List<string>();
+            Args.AddRange(args);
 
             var infoMessage = GameDataManager<InfoMessage>.Instance.Get((int)message);
             if (infoMessage != null)

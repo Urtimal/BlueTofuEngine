@@ -1,4 +1,5 @@
-﻿using BlueTofuEngine.Core.GameData;
+﻿using BlueTofuEngine.Core.Command;
+using BlueTofuEngine.Core.GameData;
 using BlueTofuEngine.Module.Character;
 using BlueTofuEngine.Module.Chat.Messages;
 using BlueTofuEngine.World;
@@ -59,6 +60,17 @@ namespace BlueTofuEngine.Module.Chat
         
         private void OnClientChat(IEntity entity, ChatChannelType channel, string content)
         {
+            if (content.First() == '.')
+            {
+                var commandName = content.Substring(1).Split(' ').First();
+                string commandArgs = string.Empty;
+                if (content.Length > commandName.Length + 2)
+                    commandArgs = content.Substring(commandName.Length + 2);
+                if (!CommandService.Instance.ExecuteClient(entity, commandName, commandArgs))
+                    entity.Notify(new SendInfoMessageEventArgs(InfoMessages.CustomError, "Erreur", "Cette commande n'existe pas."));
+                return;
+            }
+
             if (entity.Chat().DisallowedChannels.Contains(channel))
                 return;
 

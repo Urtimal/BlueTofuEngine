@@ -21,7 +21,7 @@ namespace BlueTofuEngine
             NetworkMessageRepository.Instance.SearchMessagesInAssembly(Assembly.GetExecutingAssembly());
             NetworkMessageHandlerService.Instance.SearchHandlersInAssembly(Assembly.GetExecutingAssembly());
             SystemManager.Instance.Add<ChatSystem>();
-            ConsoleCommandService.Instance.Register("infoMessage", ChatCommands.Command_Info);
+            CommandService.Instance.RegisterBoth("info", ChatCommands.Command_Info);
             ActionQueueManager.Instance.AddActionToQueue(ActionQueues.CharacterLoading, OnCharacterLoading);
             ActionQueueManager.Instance.AddActionToQueue(ActionQueues.ClientDisconnected, OnClientDisconnected);
             UserDataService.Instance.RegisterModelCreation(OnChatModelCreation);

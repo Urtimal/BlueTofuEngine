@@ -41,7 +41,7 @@ namespace BlueTofuEngine.GameServer
                     if (index != -1)
                     {
                         var commandName = cmd.Substring(0, index);
-                        ConsoleCommandService.Instance.Execute(commandName, cmd.Substring(cmd.IndexOf(' ') + 1));
+                        CommandService.Instance.ExecuteConsole(commandName, cmd.Substring(cmd.IndexOf(' ') + 1));
                     }
                 }
                 cmd = Console.ReadLine();

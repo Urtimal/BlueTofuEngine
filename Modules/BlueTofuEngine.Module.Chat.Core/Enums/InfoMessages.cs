@@ -6,6 +6,8 @@ namespace BlueTofuEngine.Module.Chat
 {
     public enum InfoMessages
     {
-        WelcomeMessage = 10089
+        Custom = 0, // %1
+        CustomError = 10016, // %1 : %2
+        WelcomeMessage = 10089,
     }
 }
