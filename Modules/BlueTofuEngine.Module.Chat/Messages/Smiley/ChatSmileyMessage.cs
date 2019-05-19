@@ -11,7 +11,7 @@ namespace BlueTofuEngine.Module.Chat
     {
         public const ushort Id = 801;
 
-        public uint EntityId { get; set; }
+        public double EntityId { get; set; }
         public int SmileyId { get; set; }
         public int AccountId { get; set; }
 

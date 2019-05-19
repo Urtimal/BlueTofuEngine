@@ -49,6 +49,9 @@ namespace BlueTofuEngine.GameServer
             _server.Stop();
             while (_server.Clients.Any())
                 _server.Clients.First().Disconnect();
+
+            Console.WriteLine("End");
+            Console.ReadLine();
         }
 
         private void send_command(string command)

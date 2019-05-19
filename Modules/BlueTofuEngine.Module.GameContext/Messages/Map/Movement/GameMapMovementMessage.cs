@@ -28,7 +28,7 @@ namespace BlueTofuEngine.Module.GameContext
             foreach (var key in Keys)
                 writer.WriteShort((short)key);
             writer.WriteShort((short)ForcedDirection);
-            writer.WriteDouble(Entity.GameContext().ContextualId);
+            writer.WriteDouble(Entity.ContextualId);
         }
 
         public override string GetSummary()

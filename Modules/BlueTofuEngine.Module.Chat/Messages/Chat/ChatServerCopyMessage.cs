@@ -12,7 +12,7 @@ namespace BlueTofuEngine.Module.Chat
     {
         public new const ushort Id = 882;
 
-        public uint ReceiverId { get; set; }
+        public long ReceiverId { get; set; }
         public string ReceiverName { get; set; }
 
         public ChatServerCopyMessage() : base(Id)

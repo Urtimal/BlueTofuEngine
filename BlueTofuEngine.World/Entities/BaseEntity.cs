@@ -14,6 +14,7 @@ namespace BlueTofuEngine.World.Entities
         public uint Id { get; private set; }
         public Guid RefId { get; set; }
         public IContext Context { get; set; }
+        public int ContextualId { get; set; }
 
         protected readonly List<IComponent> _components;
 

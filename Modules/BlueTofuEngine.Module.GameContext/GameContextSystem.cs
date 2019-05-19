@@ -38,6 +38,9 @@ namespace BlueTofuEngine.Module.GameContext
                 case MoveEntityOnMapEventArgs meomea:
                     MoveEntity(meomea.Entity, meomea.KeyMovements);
                     break;
+                case ShowCellEventArgs scea:
+                    entity.Send(new ShowCellMessage((short)scea.CellId, entity.ContextualId));
+                    break;
             }
         }
 
@@ -82,7 +85,7 @@ namespace BlueTofuEngine.Module.GameContext
                 return;
 
             entity.Context.RemoveEntity(entity.Id);
-            entity.Context.Send(new GameContextRemoveElementMessage(entity.GameContext().ContextualId));
+            entity.Context.Send(new GameContextRemoveElementMessage(entity.ContextualId));
             entity.Context = null;
         }
 

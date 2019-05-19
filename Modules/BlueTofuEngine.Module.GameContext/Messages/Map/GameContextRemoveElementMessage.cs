@@ -11,9 +11,9 @@ namespace BlueTofuEngine.Module.GameContext.Messages
     {
         public const ushort Id = 251;
 
-        public uint ElementId { get; set; }
+        public int ElementId { get; set; }
 
-        public GameContextRemoveElementMessage(uint elementId) : base(Id)
+        public GameContextRemoveElementMessage(int elementId) : base(Id)
         {
             ElementId = elementId;
         }

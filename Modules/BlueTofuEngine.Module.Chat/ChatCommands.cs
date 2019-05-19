@@ -1,4 +1,5 @@
-﻿using BlueTofuEngine.Module.Character;
+﻿using BlueTofuEngine.Module.Base;
+using BlueTofuEngine.Module.Character;
 using BlueTofuEngine.World;
 using BlueTofuEngine.World.Entities;
 using BlueTofuEngine.World.Systems;
@@ -31,21 +32,11 @@ namespace BlueTofuEngine.Module.Chat
             var message = new SendInfoMessageEventArgs(messageId);
             message.Args.AddRange(parts.Skip(2));
 
-            if (target.First() == '%')
-            {
-                var targets = CommandParser.ParseTarget(target, entity);
-                if (targets == null)
-                    return;
-                foreach (var t in targets.Where(x => x.HasComponent<CharacterComponent>()))
-                    t.Notify(message);
-            }
-            else
-            {
-                var targetEntity = EntityManager.Instance.Players.Where(x => x.HasComponent<CharacterComponent>())
-                                                             .FirstOrDefault(x => x.Look().Name.Equals(target, StringComparison.OrdinalIgnoreCase));
-                if (targetEntity != null)
-                    targetEntity.Notify(message);
-            }
+            var targets = CommandParser.ParseTarget(target, entity);
+            if (targets == null)
+                return;
+            foreach (var t in targets.Where(x => x.HasComponent<CharacterComponent>()))
+                t.Notify(message);
         }
 
         private static void sendCommandInfoHelp(IEntity entity)
