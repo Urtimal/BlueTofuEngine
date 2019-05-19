@@ -24,6 +24,8 @@ namespace BlueTofuEngine
             NetworkMessageHandlerService.Instance.SearchHandlersInAssembly(Assembly.GetExecutingAssembly());
             SystemManager.Instance.Add<GameContextSystem>();
             CommandService.Instance.RegisterBoth("teleport", GameContextCommands.Command_Teleport);
+            CommandService.Instance.RegisterClient("locationInfo", GameContextCommands.Command_LocationInfo);
+            CommandService.Instance.RegisterClient("showCell", GameContextCommands.Command_ShowCell);
             UserDataService.Instance.RegisterModelCreation(GameContextModelCreation);
             ActionQueueManager.Instance.AddActionToQueue(ActionQueues.CharacterLoading, OnCharacterLoading);
             ActionQueueManager.Instance.AddActionToQueue(ActionQueues.ClientDisconnected, OnClientDisconnected);
