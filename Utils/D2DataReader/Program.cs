@@ -3,6 +3,7 @@ using D2DataLib.DLM;
 using Newtonsoft.Json;
 using ShellProgressBar;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -19,7 +20,28 @@ namespace D2DataReader
             //Console.WriteLine(lang.Get(114, false));
             //Console.WriteLine(lang.Get(114, true));
 
-            ExportMap("input/dlm/191105026.dlm", ".");
+            var inputFolder = @"E:\Dofus Server\Dofus 2\exported_data\output\pak\maps";
+            var outputFolder = @"E:\Dofus Server\Dofus 2\exported_data\output\maps";
+
+            var files = new List<string>();
+            foreach (var dir in Directory.EnumerateDirectories(inputFolder))
+                files.AddRange(Directory.EnumerateFiles(dir).Where(x => Path.GetExtension(x).Equals(".dlm", StringComparison.OrdinalIgnoreCase)));
+
+            var masterBarOptions = new ProgressBarOptions
+            {
+                ForegroundColor = ConsoleColor.Yellow,
+                ForegroundColorDone = ConsoleColor.DarkGreen,
+                BackgroundColor = ConsoleColor.DarkGray,
+                BackgroundCharacter = '\u2593'
+            };
+            var progressBar = new ProgressBar(files.Count, "Exporting maps", masterBarOptions);
+            foreach (var file in files)
+            {
+                progressBar.Message = "Exporting " + Path.GetFileName(file) + "...";
+                ExportMap(file, outputFolder);
+                progressBar.Tick();
+            }
+            progressBar.Dispose();
 
             Console.WriteLine("Done");
             Console.ReadLine();

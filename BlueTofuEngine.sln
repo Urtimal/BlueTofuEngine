@@ -103,6 +103,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.Module.Chara
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueTofuEngine.DatabaseCreator", "Utils\BlueTofuEngine.DatabaseCreator\BlueTofuEngine.DatabaseCreator.csproj", "{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2WorldMapViewer", "Utils\D2WorldMapViewer.cs\D2WorldMapViewer.csproj", "{9B5401CF-1DEB-47BA-92A1-3E94D5A226C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D2RealTimeAnalyser", "Utils\D2RealTimeAnalyser.cs\D2RealTimeAnalyser.csproj", "{FFD1A9F9-C592-493C-9DB8-E599FABA8108}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -241,6 +245,14 @@ Global
 		{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B5401CF-1DEB-47BA-92A1-3E94D5A226C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B5401CF-1DEB-47BA-92A1-3E94D5A226C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B5401CF-1DEB-47BA-92A1-3E94D5A226C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B5401CF-1DEB-47BA-92A1-3E94D5A226C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFD1A9F9-C592-493C-9DB8-E599FABA8108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD1A9F9-C592-493C-9DB8-E599FABA8108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD1A9F9-C592-493C-9DB8-E599FABA8108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD1A9F9-C592-493C-9DB8-E599FABA8108}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -289,6 +301,8 @@ Global
 		{4E3D6E61-A33D-460B-882C-8161D4DA4FC0} = {CEC31027-53D0-4AD5-81ED-59DAF2044989}
 		{BF0BA9C6-2626-4CCF-8C07-1579B91E8424} = {C402B3AD-301D-405F-8DA4-4AA6A86497CA}
 		{23C30F05-D072-4B1B-8097-7D6BB8EB6F0E} = {F9DBD0C2-8573-4669-A11E-A38BE8FF7FB1}
+		{9B5401CF-1DEB-47BA-92A1-3E94D5A226C4} = {F9DBD0C2-8573-4669-A11E-A38BE8FF7FB1}
+		{FFD1A9F9-C592-493C-9DB8-E599FABA8108} = {F9DBD0C2-8573-4669-A11E-A38BE8FF7FB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {497D3D38-783A-4CCB-AE76-D1C5CC0A6160}
